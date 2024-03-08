@@ -1,0 +1,114 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emt-support
+  namespace: emt-support
+  labels:
+    app: emt-support
+    namespace: emt-support
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emt-support
+      namespace: emt-support
+  template:
+    metadata:
+      labels:
+        app: emt-support
+        namespace: emt-support
+    spec:
+      containers: #container is array. - is element of array
+      - name: emt-support
+
+        image: dsfsf.dkr.ecr.us-west-2.amazonaws.com/sdfdsfs:v11
+        ports:
+        - containerPort: 4000
+          protocol: TCP
+        resources:
+          limits:
+            cpu: '0.5'
+            memory: 1Gi
+          requests:
+            cpu: '0.1'
+            memory: 0.5Gi
+        livenessProbe:
+          httpGet:
+            path: /test
+            port: 4000
+          initialDelaySeconds: 30
+          periodSeconds: 20
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /test
+            port: 4000
+          initialDelaySeconds: 30
+          periodSeconds: 15
+          successThreshold: 1
+          timeoutSeconds: 1
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 50
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - emt-support
+                topologyKey: "kubernetes.io/hostname"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: emt-support
+  namespace: emt-support
+spec:
+  selector:
+    app: emt-support
+    namespace: emt-support
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4000
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: emt-support
+  namespace: emt-support
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "360s"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "360s"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "360s"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: emt-support.profoundly.me
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: emt-support
+          servicePort: 80
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: emt-support
+  namespace: emt-support
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: emt-support
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70

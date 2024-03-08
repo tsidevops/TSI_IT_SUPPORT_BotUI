@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function setCookie(name, value, daysToLive) {
+            // Encode value in order to escape semicolons, commas, and whitespace
+            var cookie = name + "=" + encodeURIComponent(value);
+            console.log("setting Cokkie");
+            if(typeof daysToLive === "number") {
+                /* Sets the max-age attribute so that the cookie expires
+                after the specified number of days */
+                cookie += "; max-age=" + (daysToLive*24*60*60);
+
+                document.cookie = cookie;
+            }
+        }
+    if('{{token}}' != 'undefined'){
+    setCookie("token", '{{token}}', 30);
+    };
+     setTimeout(function(){
+            window.location.href = '/';
+         }, 2000);
+</script>
+
+<h1>Login Successfull you are being Redirect To Home page in a while....</h1>
+</body>
+</html>

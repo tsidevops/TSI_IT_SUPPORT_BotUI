@@ -1,0 +1,312 @@
+{% extends 'base.html' %}
+
+{% block extrajs %}
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="js/firestore_emt_admin.js?emtctbov=007"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        if(btn){
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        }
+
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+});
+
+function copy_text(input_id) {
+    var text = document.getElementById(input_id).innerText;
+    var elem = document.createElement("textarea");
+    document.body.appendChild(elem);
+    elem.value = text;
+    elem.select();
+    document.execCommand("copy");
+    document.body.removeChild(elem);
+    var modal = document.getElementById("myModal");
+    var alert_msg = document.getElementById("alert_message")
+    modal.style.display = "none";
+    alert_message.style.display = "block";
+    setTimeout(function(){
+         alert_message.style.display = "none";
+    }, 2000);
+
+<!--    alert(text);-->
+}
+
+$(function(){
+
+ $("#status").change(function(){
+     var status = this.value;
+     if(status == 1){
+        console.log("active");
+        update_status(1, $("#active_query_msg").children().size())
+
+     }
+     else if(status == 0)
+     {
+        console.log("in active");
+        update_status(0, $("#active_query_msg").children().size())
+
+     }
+
+  });
+
+});
+
+</script>
+{% endblock %}
+
+{% block container %}
+ <div class="emt_header">
+            <a  title="easemytrip.com" class="emt_logo"><i class="newHeaderLogo"></i></a>
+ </div>
+<header class="topnavheder">
+     <div class="dropdown pull-right" style="margin-top:-5px">
+              <button class="btn btn-default dropdown-toggle admrgmnu" type="button"
+                      data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bars"></i>
+              </button>
+              <ul class="dropdown-menu">
+                  <li><a class="ng-binding" data-ol-has-click-handler="" id="loginusername"><i class="fa fa-user-circle-o"></i></a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="index_productivity"><i class="fa fa-table"></i> Productivity Reports</a></li>
+                  <li><a href="transfer_index_productivity"><i class="fa fa-table"></i> Transfer Reports</a></li>
+                  <li><a href="get_template"><i class="fa fa-envelope"></i> Template Messages</a></li>
+                  <li><a href="index_usermanagement"><i class="fa fa-user"></i> User Management (Agents)</a></li>
+                   <li><a href="index_usermanagement_admin"><i class="fa fa-user"></i> User Management (Admin)</a></li>
+                  <li><a href="/logout_admin"><i class="fa fa-sign-out"></i> Logout</a></li>
+              </ul>
+              <li class="nav_element" style="float: right;">
+              </li>
+     </div>
+    <div id="navigation_bar_dynamic_rendering">
+         <nav class="tnav">
+      <div style="margin-left:81%" class="nav_bar_horizontal">
+
+      </div>
+    </nav>
+    </div>
+
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 sdvi">
+		    <div class="input-group">
+                <div class="input-group-btn search-panel">
+                    <button type="button"  id="btnsearchby" class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown">
+                    	<span id="search_concept">Search by</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                       <li><a>User</a></li>
+                      <li><a>Mobile Number</a></li>
+                      <li><a>Email/Phone</a></li>
+                      <li><a>Booking Id/PNR</a></li>
+                      <li><a>Chat Id</a></li>
+                    </ul>
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">
+                <input type="text" class="form-control" name="x" id="txtsearch" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" id="searchbtn">
+                        <span class="glyphicon glyphicon-search"></span></button>
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="sdvit">
+            <span style="font-weight:600">Total Un-Assigned: </span><span id="un_assign_chat_totalcount">0</span>
+            <span style="font-weight:600">Total Closed(24h): </span>  <span  id="closed_chat_totalcount">0</span>
+
+        </div>
+	</div>
+</div>
+<div class="panel messages-panel">
+
+    <!-- Trigger/Open The Modal -->
+
+
+    <!-- The Modal -->
+
+
+    <div class="contacts-list" style="margin-top:-47px">
+        <div class="inbox-categories">
+            <div data-toggle="tab" data-target="#inbox" class="tab1">Active<br> <div id="active_chat_count">0</div></div>
+            <div data-toggle="tab" data-target="#sent" class="tab1"> Closed<br> <div id="closed_chat_count">0</div></div>
+            <div data-toggle="tab" data-target="#marked" class="tab1"> Unassigned <br><div id="un_assign_chat_count">0</div>
+            </div>
+        </div>
+        <script>
+            $(".tab1").click(function() {
+               console.log("click");
+              $(".tab1").removeClass('selected')
+              $(this).addClass('selected')
+            })
+
+        </script>
+        <div class="tab-content">
+
+            <div id="inbox" class="contacts-outter-wrapper tab-pane active">
+<!--                <form class="panel-search-form info form-group has-feedback no-margin-bottom">-->
+<!--                    <input type="text" class="form-control" name="search" placeholder="Search">-->
+<!--                    <span class="fa fa-search form-control-feedback"></span>-->
+<!--                </form>-->
+                <div class="contacts-outter">
+                    <ul class="list-unstyled contacts" id="active_query_msg">
+                    </ul>
+                </div>
+            </div>
+            <div id="sent" class="contacts-outter-wrapper tab-pane">
+<!--                <form class="panel-search-form success form-group has-feedback no-margin-bottom">-->
+<!--                    <input type="text" class="form-control" name="search" placeholder="Search">-->
+<!--                    <span class="fa fa-search form-control-feedback"></span>-->
+<!--                </form>-->
+                <div class="contacts-outter">
+                    <ul class="list-unstyled contacts success" id="close_query_msg">
+                    </ul>
+                </div>
+                <div>
+                <button id="prev-close" class="prvbtn">&gt;&gt;</button>
+                <button id="next-close" class="nextbtn">&lt;&lt;</button>
+                </div>
+
+            </div>
+            <div id="marked" class="contacts-outter-wrapper tab-pane">
+<!--                <form class="panel-search-form warning form-group has-feedback no-margin-bottom">-->
+<!--                    <input type="text" class="form-control" name="search" placeholder="Search">-->
+<!--                    <span class="fa fa-search form-control-feedback"></span>-->
+<!--                </form>-->
+                <div class="contacts-outter">
+                    <ul class="list-unstyled contacts warning" id="unassign_msg">
+
+                    </ul>
+                </div>
+                <button id="prev-unassign" class="prvbtn">&gt;&gt;</button>
+                <button id="next-unassign" class="nextbtn">&lt;&lt;</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="tab-content" id="tab-content-msg">
+        <div class="topbtndiv" id="topbtndiv">
+
+        <span style="font-weight:600">Department:</span>
+        <select id="ddl_departments">
+        </select>
+        <span style="font-weight:600">User:</span>
+        <select id="ddl_dptusers">
+        </select>
+         <span style="font-weight:600">User Closed(24h): </span>  <span id="closed_chat_user_totalcount"></span>
+
+        </div>
+        <div id="alert_message" style="margin-top: 25px; font-size: 20px;background:#48aae9;
+        height:45px; width:250px; display:none;" class="w3-display-topright">Text Copied Successfully!</div>
+        <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close">&times;</span>
+              <h3>Message Templates</h3>
+            </div>
+            <div class="modal-body">
+                <p id="text1">Hello, welcome to EaseMyTrip assistance via chat. How may I help you today?  &nbsp; &nbsp;
+                    <button style="float: right;" onclick="copy_text('text1')">
+                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy--v1.png"/>
+                    </button>
+                </p>
+                <hr>
+                <p id="text2">Sure, let me check the relevant information for you, it may take a while request you to kindly bear with me.  &nbsp; &nbsp;
+                    <button style="float: right;" onclick="copy_text('text2')">
+                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy--v1.png"/>
+                    </button>
+                </p>
+                <hr>
+                <p id="text3">Since, there is no response I am ending the conversation here. Please feel free to connect with us
+                    in case of any further assistance required.  &nbsp; &nbsp;
+                    <button style="float: right;" onclick="copy_text('text3')">
+                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy--v1.png"/>
+                    </button>
+                </p>
+                <hr>
+                <p id="text4">I hope I was able to assist you positively. Thank you!  &nbsp; &nbsp;
+                    <button style="float: right;" onclick="copy_text('text4')">
+                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy--v1.png"/>
+                    </button>
+                </p>
+<!--                <hr>-->
+<!--                <p id="text5">Now that you have PubNub installed and instantiated, subscribe to your own custom data-->
+<!--                    channel and log all sent messages over that channel on the console.​ To make the channel private,  &nbsp; &nbsp;-->
+<!--                    <button style="float: right;" onclick="copy_text('text5')">-->
+<!--                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy&#45;&#45;v1.png"/>-->
+<!--                    </button>-->
+<!--                </p>-->
+<!--                <hr>-->
+<!--                <p id="text6">Now that you have PubNub installed and instantiated, subscribe to your own custom data-->
+<!--                    channel and log all sent messages over that channel on the console.​ To make the channel private,  &nbsp; &nbsp;-->
+<!--                    <button style="float: right;" onclick="copy_text('text6')">-->
+<!--                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy&#45;&#45;v1.png"/>-->
+<!--                    </button>-->
+<!--                </p>-->
+<!--                <hr>-->
+<!--                <p id="text7">Now that you have PubNub installed and instantiated, subscribe to your own custom data-->
+<!--                    channel and log all sent messages over that channel on the console.​ To make the channel private,  &nbsp; &nbsp;-->
+<!--                    <button style="float: right;" onclick="copy_text('text7')">-->
+<!--                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy&#45;&#45;v1.png"/>-->
+<!--                    </button>-->
+<!--                </p>-->
+<!--                <hr>-->
+<!--                <p id="text8">Now that you have PubNub installed and instantiated, subscribe to your own custom data-->
+<!--                    channel and log all sent messages over that channel on the console.​ To make the channel private,  &nbsp; &nbsp;-->
+<!--                    <button style="float: right;" onclick="copy_text('text8')">-->
+<!--                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy&#45;&#45;v1.png"/>-->
+<!--                    </button>-->
+<!--                </p>-->
+<!--                <hr>-->
+            </div>
+
+          </div>
+
+        </div>
+
+        <img id="loading" src="img/loader.gif" alt="Loading indicator" style="margin-top: 200px; margin-left: 250px;">
+    </div>
+</div>
+
+{% endblock %}
+

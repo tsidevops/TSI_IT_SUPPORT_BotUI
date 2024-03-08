@@ -1,0 +1,278 @@
+{
+    "templates":[
+        {
+            "catName": "Refund",
+            "id":"refund",
+            "subData":[
+                {
+                    "id": "cancelRefund",
+                    "subCatName":"Cancellation Refund"
+                },
+                {
+                    "id": "pndFrmAirLn",
+                    "subCatName":"Pending from Airline"
+                },
+                {
+                    "id": "autoRvsl",
+                    "subCatName":"Auto Reversal"
+                },
+                {
+                    "id": "pndFrmAccTm",
+                    "subCatName":"Pending from accounts team"
+                },
+                {
+                    "id": "trnRefund",
+                    "subCatName":"Train Refund"
+                },
+                {
+                    "id": "busRefund",
+                    "subCatName":"Bus Refund"
+                },
+                {
+                    "id": "cabRefund",
+                    "subCatName":"Cab Refund"
+                },
+                {
+                    "id": "insrnRefund",
+                    "subCatName":"Insurance Refund"
+                },
+                {
+                    "id": "seatRefund",
+                    "subCatName":"Seat Refund"
+                },
+                {
+                    "id": "lostRefund",
+                    "subCatName":"Lost Refund"
+                },
+                {
+                    "id": "rejctRefund",
+                    "subCatName":"Rejected Refund"
+                },
+                {
+                    "id": "dlyInRefund",
+                    "subCatName":"Delay In Refund"
+                },
+                {
+                    "id": "wltRefund",
+                    "subCatName":"Wallet Refund"
+                },
+                {
+                    "id": "waiveOff",
+                    "subCatName":"Waive-off"
+                }
+            ]
+        },
+        {
+            "catName": "Cancellation",
+            "id":"cancellation",
+            "subData":[
+                {
+                    "id":"flgtCancel",
+                    "subCatName":"Flight Cancellation"
+                },
+                {
+                    "id":"busCancel",
+                    "subCatName":"Bus Cancellation"
+                },
+                {
+                    "id":"cabCancel",
+                    "subCatName":"Cab Cancellation"
+                },
+                {
+                    "id":"trnCancel",
+                    "subCatName":"Train Cancellation"
+                },
+                {
+                    "id":"bgagCancel",
+                    "subCatName":"Baggage Cancellation"
+                },
+                {
+                    "id":"mealCancel",
+                    "subCatName":"Meal Cancellation"
+                },
+                {
+                    "id":"seatCancel",
+                    "subCatName":"Seat Cancellation"
+                },
+                {
+                    "id":"insCancel",
+                    "subCatName":"Insurance Cancellation"
+                }
+            ] 
+        },
+        {
+            "catName":"E-Ticket",
+            "id":"eTicket",
+            "subData":[
+                {
+                    "id":"flight",
+                    "subCatName":"Flight"
+                },
+                {
+                    "id":"train",
+                    "subCatName":"Train"
+                },
+                {
+                    "id":"gstInvoice",
+                    "subCatName":"GST Invoice"
+                },
+                {
+                    "id":"bus",
+                    "subCatName":"Bus"
+                }
+            ]
+        },
+        {
+            "catName":"Re-Issuance",
+            "id":"reIssuance",
+            "subData":[
+                {
+                    "id":"reIssuancePnlty",
+                    "subCatName":"Re-issuance Penalty"
+                },
+                {
+                    "id":"reIssuanceEnqry",
+                    "subCatName":"Re-issue enquiry"
+                },
+                {
+                    "id":"unbleReissue",
+                    "subCatName":"Unable to re-issue"
+                },
+                {
+                    "id":"reIssuanceDone",
+                    "subCatName":"Re-issuance Done"
+                }
+            ]
+        },
+        {
+            "catName":"Add-ons Update",
+            "id":"addOnUpdate",
+            "subData":[
+                {
+                    "id":"mealUpdt",
+                    "subCatName":"Meal Update"
+                },
+                {
+                    "id":"seatUpdt",
+                    "subCatName":"Seat Update"
+                },
+                {
+                    "id":"bgagUpdt",
+                    "subCatName":"Baggage Update"
+                },
+                {
+                    "id":"wheelChairUpdt",
+                    "subCatName":"Wheel chair Update"
+                },
+                {
+                    "id":"boardPass",
+                    "subCatName":"Boarding Pass"
+                },
+                {
+                    "id":"insUpdt",
+                    "subCatName":"Insurance Update"
+                },
+                {
+                    "id":"freqFlyNo",
+                    "subCatName":"Frequent Flyer No."
+                },
+                {
+                    "id":"updtMobEml",
+                    "subCatName":"Updating Mobile Number/E-mail Id"
+                }
+            ]
+        },
+        {
+            "catName":"Query",
+            "id":"query",
+            "subData":[
+                {
+                    "id":"qryFrwd",
+                    "subCatName":"Query Forwarded"
+                },
+                {
+                    "id":"webChkin",
+                    "subCatName":"Web checkin"
+                },
+                {
+                    "id":"offers",
+                    "subCatName":"Offers"
+                },
+                {
+                    "id":"qryBusFrwd",
+                    "subCatName":"Query Bus forwaded"
+                }
+            ]
+        },
+        {
+            "catName":"Correction",
+            "id":"correction",
+            "subData":[
+                {
+                    "id":"dateErr",
+                    "subCatName":"Date Error"
+                },
+                {
+                    "id":"spellErr",
+                    "subCatName":"Spelling Error"
+                },
+                {
+                    "id":"titleErr",
+                    "subCatName":"Title Error"
+                }
+            ]
+        },
+        {
+            "catName":"Covid -19",
+            "id":"covid19",
+            "subData":[
+                {
+                    "id":"reIssuance",
+                    "subCatName":"Re-Issuance"
+                },
+                {
+                    "id":"cancelDone",
+                    "subCatName":"Cancellation Done"
+                },
+                {
+                    "id":"refundStatus",
+                    "subCatName":"Refund Status"
+                },
+                {
+                    "id":"cancelCharges",
+                    "subCatName":"Cancellation Charges"
+                },
+                {
+                    "id":"within72hrsReissue",
+                    "subCatName":"Within 72hrs-Re-Issuance"
+                },
+                {
+                    "id":"fullRefund",
+                    "subCatName":"Full Refund "
+                }
+            ]
+        },
+        {
+            "catName":"Tech Team Related",
+            "id":"techTeamRelated",
+            "subData":[
+                {
+                    "id":"couponCode",
+                    "subCatName":"Coupon Code"
+                },
+                {
+                    "id":"refund",
+                    "subCatName":"Refund"
+                },
+                {
+                    "id":"dualBooking",
+                    "subCatName":"Dual Booking"
+                },
+                {
+                    "id":"baggage",
+                    "subCatName":"Baggage"
+                }
+            ]
+        }
+    ]
+}

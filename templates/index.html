@@ -1,0 +1,419 @@
+{% extends 'base.html' %}
+
+{% block extrajs %}
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="js/firestore_emt.js?emtctbov=007"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+    .modal-body-size{
+        max-height: calc(100vh - 200px);
+        overflow-y: auto;
+    }
+</style>
+<script>
+$(document).ready(function() {
+    var myItems;
+
+    $.ajax({
+        type: "POST",
+        dataType: 'json',
+        url: "/msgTemplateData",
+        // beforeSend: function(xhr){
+        //     xhr.setRequestHeader('Authorization', getCookie('token'));
+        //     xhr.setRequestHeader('request_type', 'js');
+        //     },
+        success: function (result) {
+            console.log(result)
+            if (result['data'] == undefined) {
+                // alert(result['message'])
+                //window.location.href = '/login';
+                $('#loading').remove();
+            }
+            else {
+
+                var myItems = result.data;
+                myItems.forEach(element => {
+                    // console.log("****************************element",element.id);
+                    var item = null;
+                    item = `<a href="#${element.id}" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+            <h4>${element.catName}</h4></a><div class="collapse" id="${element.id}">`;
+
+
+                    // console.log("****************************msgChatActive",msgChatActive);
+                    item += `<ul class="list-group-item-text">`;
+
+                    element.subData.forEach(subElement => {
+                        // console.log("****************************subElement",subElement);
+
+                        item += ` <hr>
+                    <h5>
+                        <li>${subElement.subCatName}</li>
+                    </h5>
+                        <img onclick="copy_text('${subElement.id}')" style="float: right; height:40px; width:40px;" src="https://img.icons8.com/cotton/100/000000/copy--v1.png"/>
+                        <pre id=${subElement.id}>${subElement.data}</pre>`;
+
+                        // console.log("****************************subElement.data\n",subElement.data);
+
+                    })
+
+                    item += `</ul></div>`;
+                    $('#panelListGrp').append(`${item}`);
+
+                });
+
+            }
+
+        },
+        error: function (result) {
+            $('#loading').remove();
+        }
+    });
+
+    // $.getJSON('data/templateData.json', function (data) {
+    //     var myItems = data.templates;
+    //     myItems.forEach(element => {
+    //     // console.log("****************************element",element.id);
+    //     var item = null;
+    //     item =`<a href="#${element.id}" data-parent="#accordion" data-toggle="collapse" class="list-group-item">
+    //         <h4>${element.catName}</h4></a><div class="collapse" id="${element.id}">`;
+
+        
+    //     // console.log("****************************msgChatActive",msgChatActive);
+    //     item+=`<ul class="list-group-item-text">`;
+
+    //     element.subData.forEach(subElement =>{
+    //         // console.log("****************************subElement",subElement);
+            
+    //         item+=` <hr>
+    //                 <h5>
+    //                     <li>${subElement.subCatName}</li>
+    //                 </h5>
+    //                     <img onclick="copy_text('${subElement.id}')" style="float: right; height:40px; width:40px;" src="https://img.icons8.com/cotton/100/000000/copy--v1.png"/>
+    //                     <pre id=${subElement.id}>${subElement.data}</pre>`;
+
+    //         // console.log("****************************subElement.data\n",subElement.data);
+
+    //     })
+    
+    //     item+= `</ul></div>`;
+    //     $('#panelListGrp').append(`${item}`);
+
+    //     });
+    // });
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+});
+
+function copy_text(input_id) {
+    var text = document.getElementById(input_id).innerText;
+    var elem = document.createElement("textarea");
+    document.body.appendChild(elem);
+    elem.value = text;
+    elem.select();
+    document.execCommand("copy");
+    document.body.removeChild(elem);
+    var modal = document.getElementById("myModal");
+    // var alert_msg = document.getElementById("alert_message")
+    modal.style.display = "none";
+
+
+    // Template message text copy to input box and show messages
+    var listId = $('#inbox.contacts-outter-wrapper.tab-pane.active ul#active_query_msg')
+                    .find('li.active')
+                    .attr('id');
+    // var listId = $('#inbox ul#active_query_msg').find('li.active').attr('id');
+    console.log("listId:", listId);
+    if (listId !== undefined) {
+        var sendMsgTxtId = listId.replace("active-assign-", "#sent-message-text-");
+        console.log("sendMsgTxtId:", sendMsgTxtId);
+        var input = $(sendMsgTxtId);
+        input.val(text);
+
+        var alert_msg = document.getElementById("alert_message");
+        alert_message.style.display = "block";
+        setTimeout(function () {
+            alert_message.style.display = "none";
+        }, 2000);
+
+    } else {
+        var alert_msg_err = document.getElementById("alert_message-error");
+        alert_msg_err.style.display = "block";
+        setTimeout(function () {
+            alert_msg_err.style.display = "none";
+        }, 2000);
+    }
+
+    // alert_message.style.display = "block";
+    // setTimeout(function(){
+    //      alert_message.style.display = "none";
+    // }, 2000);
+
+// <!--    alert(text);-->
+}
+
+$(function(){
+
+ $("#status").change(function(){
+     var status = this.value;
+     if(status == 1){
+        console.log("active");
+        update_status(1, $("#active_query_msg").children().size())
+
+     }
+     else if(status == 0)
+     {
+        console.log("in active");
+        update_status(0, $("#active_query_msg").children().size())
+
+     }
+
+  });
+
+});
+
+</script>
+{% endblock %}
+
+{% block container %}
+<div class="emt_header">
+            <a  title="tsiplc.com" class="emt_logo"><i class="newHeaderLogo"></i></a>
+ </div>
+<header id="navigation_bar_dynamic_rendering" class="topnavheder">
+    <nav style="margin-left:81%;" class="tnav">
+      <div style="margin-left:81%" class="nav_bar_horizontal">
+        <li class="nav_element"><a id="login_nav" href="">LOGIN</a></li>
+        <!--<li class="nav_element"><a id="signup_nav" href="">SIGNUP</a></li>-->
+      </div>
+    </nav>
+</header>
+<div class="panel messages-panel">
+
+    <!-- Trigger/Open The Modal -->
+
+
+    <!-- The Modal -->
+
+
+    <div class="contacts-list">
+        <div class="inbox-categories">
+            <div data-toggle="tab" data-target="#inbox" class="tab1"> Active<br> <div id="active_chat_count">0</div></div>
+            <div data-toggle="tab" data-target="#sent" class="tab1"> Closed<br> <div id="closed_chat_count">0</div></div>
+            <div data-toggle="tab" data-target="#marked" class="tab1"> Unassigned <br><div id="un_assign_chat_count">0</div>
+                <!--<a id="un_assign_chat_tcount">Total</a>--></div>
+        </div>
+        <script>
+            $(".tab1").click(function() {
+               console.log("click");
+              $(".tab1").removeClass('selected')
+              $(this).addClass('selected')
+            })
+
+        </script>
+        <div class="tab-content">
+
+            <div id="inbox" class="contacts-outter-wrapper tab-pane active">
+<!--                <form class="panel-search-form info form-group has-feedback no-margin-bottom">-->
+<!--                    <input type="text" class="form-control" name="search" placeholder="Search">-->
+<!--                    <span class="fa fa-search form-control-feedback"></span>-->
+<!--                </form>-->
+                <div class="contacts-outter">
+                    <ul class="list-unstyled contacts" id="active_query_msg">
+                    </ul>
+                </div>
+            </div>
+            <div id="sent" class="contacts-outter-wrapper tab-pane">
+<!--                <form class="panel-search-form success form-group has-feedback no-margin-bottom">-->
+<!--                    <input type="text" class="form-control" name="search" placeholder="Search">-->
+<!--                    <span class="fa fa-search form-control-feedback"></span>-->
+<!--                </form>-->
+                <div class="contacts-outter">
+                    <ul class="list-unstyled contacts success" id="close_query_msg">
+                    </ul>
+                </div>
+                <div>
+                <button id="prev-close" class="prvbtn">&gt;&gt;</button>
+                <button id="next-close" class="nextbtn">&lt;&lt;</button>
+                </div>
+
+            </div>
+            <div id="marked" class="contacts-outter-wrapper tab-pane">
+<!--                <form class="panel-search-form warning form-group has-feedback no-margin-bottom">-->
+<!--                    <input type="text" class="form-control" name="search" placeholder="Search">-->
+<!--                    <span class="fa fa-search form-control-feedback"></span>-->
+<!--                </form>-->
+                <div class="contacts-outter">
+                    <ul class="list-unstyled contacts warning" id="unassign_msg">
+
+                    </ul>
+                </div>
+                <button id="prev-unassign" class="prvbtn">&gt;&gt;</button>
+                <button id="next-unassign" class="nextbtn">&lt;&lt;</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="tab-content" id="tab-content-msg">
+        <button style="background: #48aae9;  height:35px; border-radius: 5px;" id="myBtn">Message Templates</button> &nbsp; &nbsp;
+        <select style="background: #48aae9; height:35px; border-radius: 5px;" id="status">
+            <option value="0">Going Away</option>
+            <option value="1">Active</option>
+        </select>
+        <div id="alert_message" style="margin-top: 25px; font-size: 20px;background:#008000; color:#ffffff;
+        height:65px; width:250px; display:none;" class="w3-display-topright">Text Copied Successfully!</div>
+
+        <div id="alert_message-error" style="margin-top: 25px; font-size: 20px;background:#ff0000; color:#ffffff;
+        height:45px; width:250px; display:none;" class="w3-display-topright">Text Copied Failed!</div>
+        
+        <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close">&times;</span>
+              <h3>Message Templates</h3>
+            </div>
+            <div class="modal-body modal-body-size">
+                <!-- New Message Template Data start -->
+
+                <div id="accordion">
+                    <div id="panelListGrp" class="panel list-group">
+                        <!-- Content load dynamically in jquery -->
+                    </div>
+                </div>
+
+                <!-- New Message Template ends -->
+
+                <!-- <p id="text1">Hello, welcome to EaseMyTrip assistance via chat. How may I help you today?  &nbsp; &nbsp;
+                    <button style="float: right;" onclick="copy_text('text1')">
+                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy--v1.png"/>
+                    </button>
+                </p>
+                <hr>
+                <p id="text2">Sure, let me check the relevant information for you, it may take a while request you to kindly bear with me.  &nbsp; &nbsp;
+                    <button style="float: right;" onclick="copy_text('text2')">
+                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy--v1.png"/>
+                    </button>
+                </p>
+                <hr>
+                <p id="text3">Since, there is no response I am ending the conversation here. Please feel free to connect with us
+                    in case of any further assistance required.  &nbsp; &nbsp;
+                    <button style="float: right;" onclick="copy_text('text3')">
+                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy--v1.png"/>
+                    </button>
+                </p>
+                <hr>
+                <p id="text4">I hope I was able to assist you positively. Thank you!  &nbsp; &nbsp;
+                    <button style="float: right;" onclick="copy_text('text4')">
+                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy--v1.png"/>
+                    </button>
+                </p> -->
+
+
+
+<!--                <hr>-->
+<!--                <p id="text5">Now that you have PubNub installed and instantiated, subscribe to your own custom data-->
+<!--                    channel and log all sent messages over that channel on the console.​ To make the channel private,  &nbsp; &nbsp;-->
+<!--                    <button style="float: right;" onclick="copy_text('text5')">-->
+<!--                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy&#45;&#45;v1.png"/>-->
+<!--                    </button>-->
+<!--                </p>-->
+<!--                <hr>-->
+<!--                <p id="text6">Now that you have PubNub installed and instantiated, subscribe to your own custom data-->
+<!--                    channel and log all sent messages over that channel on the console.​ To make the channel private,  &nbsp; &nbsp;-->
+<!--                    <button style="float: right;" onclick="copy_text('text6')">-->
+<!--                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy&#45;&#45;v1.png"/>-->
+<!--                    </button>-->
+<!--                </p>-->
+<!--                <hr>-->
+<!--                <p id="text7">Now that you have PubNub installed and instantiated, subscribe to your own custom data-->
+<!--                    channel and log all sent messages over that channel on the console.​ To make the channel private,  &nbsp; &nbsp;-->
+<!--                    <button style="float: right;" onclick="copy_text('text7')">-->
+<!--                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy&#45;&#45;v1.png"/>-->
+<!--                    </button>-->
+<!--                </p>-->
+<!--                <hr>-->
+<!--                <p id="text8">Now that you have PubNub installed and instantiated, subscribe to your own custom data-->
+<!--                    channel and log all sent messages over that channel on the console.​ To make the channel private,  &nbsp; &nbsp;-->
+<!--                    <button style="float: right;" onclick="copy_text('text8')">-->
+<!--                        <img style="height:20px; width:20px;" src="https://img.icons8.com/cotton/100/000000/copy&#45;&#45;v1.png"/>-->
+<!--                    </button>-->
+<!--                </p>-->
+<!--                <hr>-->
+            </div>
+
+          </div>
+
+        </div>
+
+        <img id="loading" src="img/loader.gif" alt="Loading indicator" style="margin-top: 200px; margin-left: 250px;">
+    </div>
+</div>
+
+<!-- Modal -->
+<!-- closeChatModal -->
+<div class="modal fade" id="closeChatModal" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div id="closeChatContent"  class="modal-content" style="position: none !important;">
+            <div class="modal-header">
+                <h3 id="closeChatTitle" class="modal-title" id="closeChatModalTitle">Do you really want to end this query?</h3>
+                <button type="button" id="btnCloseChat" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4><strong>Please select the conversation category and sub-category</strong></h4>
+                <br>
+                <strong>Category: </strong>
+                <select id="selectNow" required>
+                    <option value="" selected disabled hidden>Choose from here</option>
+                   
+                </select>
+                <br>
+                <br>
+                <strong>Sub Category: </strong>
+                <select id="selectNow2" disabled>
+                    <option value="" selected disabled hidden>Choose from here</option>
+                </select>
+                <br>
+                <br>
+            </div>
+            <div id="closeChatFooter" class="modal-footer">
+                <button id="confirmCloseChat" type="button" disabled class="btn btn-success">Yes</button>
+                <button id="cancelCloseChat" type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

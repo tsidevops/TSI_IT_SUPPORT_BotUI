@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block extrajs %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="js/emt_usermanagement.js?emtctbov=005"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.4/css/ui.jqgrid.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.4/jquery.jqgrid.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+<script type="text/javascript">
+
+</script>
+
+{% endblock %}
+
+{% block container %}
+ <div class="emt_header">
+            <a  title="easemytrip.com" class="emt_logo"><i class="newHeaderLogo"></i></a>
+ </div>
+<header id="navigation_bar_dynamic_rendering" class="topnavheder">
+    <nav class="tnav">
+      <div style="margin-left:81%" class="nav_bar_horizontal">
+          <li class="nav_element" style="float: right;">
+              <a id="signup_nav" href="/logout_admin">LOGOUT</a></li>
+          <li class="nav_element" style="float: right;">
+              <a href="/index_admin"><b>Home</b></a>
+          </li>
+      </div>
+    </nav>
+</header>
+<div class="container">
+     {% if error %}
+
+      <div class="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          <strong>{{error}}</strong>
+      </div>
+    {% endif %}
+    <div class="dvselectionusrm">
+        <div>
+		    <div class="dvduratn">
+                <div>
+                    <span style="font-weight:600">Department:</span>
+                    <select id="ddl_departments">
+                    </select>
+                    <button class="searchdv" id="btnSearch">Search</button>
+                </div>
+
+            </div>
+                <div>
+                    <button type="submit" class="btn btn-primary addnew" title="Add New User" id="btnNewUser">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                </div>
+        </div>
+
+
+	</div>
+</div>
+
+<div class="panel messages-panel">
+
+    <div class="tab-content" id="tab-content-msg">
+        <div class="dtdvgru" style="width:100%;overflow:auto;">
+             <table id="grid" >
+             </table>
+            <div id="pager"></div>
+        </div>
+         <img id="loading" src="img/loader.gif" alt="Loading indicator" style="margin-top: 200px; margin-left: 250px;">
+    </div>
+
+</div>
+   <!-- Edit User Detail Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="editModal">
+
+  <div class="modal-dialog" role="document" id="editModalmodaldialog">
+    <div class="modal-content" style="width: 449px;">
+      <div class="modal-header">
+        <h4 class="modal-title"><span id="actionType"></span>User Detail</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                style="margin-top: -26px;color: white;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="login">
+      <form id="usrdetailform">
+        <p><input type="text" class="frmtxtbox" name="email" placeholder="Email" id="editPopupEmail"
+                  readonly required></p>
+        <p><input type="text" class="frmtxtbox" name="name" value="" placeholder="Name" id="editPopupName" required></p>
+        <p></B><input type="text" class="frmtxtbox" name="phone" placeholder="Mobile Number" id="editPopupPhone" required></p>
+           <p id="pPassword"><input type="password" class="frmtxtbox" name="password" value=""
+                                                     placeholder="Password" id="editPopupPassword" required></p>
+        <p id="pCnPassword"><input type="password" class="frmtxtbox" class="frmtxtbox"name="confirm_password" value=""
+                                                            placeholder="Confirm Password" id="editPopupConfirmPassword" required></p>
+
+          <p><B>Gender :</B>
+            <select name="gender" id="editPopupGender" required>
+                <option value="">Please Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </p>
+           <p><B>Department :</B>
+            <select id="editPopupDepartment" name="department" required>
+                <option value="">Please Select One</option>
+                <option value="b2b">B2B Support</option>
+                <option value="b2c">B2C Support</option>
+                <option value="cor">Corporate Support</option>
+                <option value="pro">Promotional Support</option>
+                <option value="ehs">Existing Hotel Support</option>
+                <option value="etas">Existing Travel Agent Support</option>
+          </select>
+          <p><B>Active :</B>
+            <select name="active" id="editPopupActive" required>
+                <option value="">Please select user state</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+        </p>
+          <div class="frmfooter">
+        <button type="button" class="btn btn-primary" id="btnUpdate">Update</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+      </form>
+    </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

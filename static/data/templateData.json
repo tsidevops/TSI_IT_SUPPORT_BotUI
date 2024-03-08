@@ -1,0 +1,625 @@
+{
+    "templates":[
+        {
+            "catName":"Standard Script",
+            "id":"stdScript",
+            "subData":[
+                {
+                    "id": "WlcmMsg",
+                    "subCatName":"Welcome Message",
+                    "data":"Hello, welcome to EaseMyTrip assistance via chat. How may I help you today?"
+                },
+                {
+                    "id": "chkInfo",
+                    "subCatName":"Check Information",
+                    "data":"Sure, let me check the relevant information for you, it may take a while request you to kindly bear with me."
+                },
+                {
+                    "id": "noResp",
+                    "subCatName":"No Response",
+                    "data":"Since, there is no response I am ending the conversation here. Please feel free to connect with us in case of any further assistance required."
+                },
+                {
+                    "id": "thnqMsg",
+                    "subCatName":"Thank You Message",
+                    "data":"I hope I was able to assist you positively. Thank you!"
+                }
+            ]
+        },
+        {
+            "catName": "Refund",
+            "id":"refund",
+            "subData":[
+                {
+                    "id": "refundNotClaimed",
+                    "subCatName":"Refund processed by airlines but not claimed by customer",
+                    "data":"1. After persistent follow ups with the airlines, we have got your refund approved from the {Airlines name} on booking id {} for PNR - {}\n2. After persistent follow ups with the airlines, We have got your refund approved from the {Airlines name} on booking id {} for PNR - {}\nKindly claim your refund from our self-service tool - https://mybookings.easemytrip.com/ as mentioned in our Website and APP\nTo cancel/claim refund of your booking.\nStep 1: Log-in into EaseMyTrip self-service portal (https://mybookings.easemytrip.com/) as a guest or signed-in user.\nStep 2: Retrieve Booking >> Cancel flight\nStep 3: Select passengers(s) and itinerary to cancel >> Choose your reason to cancel/claim refund >> Check Refund/Cancel >> Claim Refund."
+                },
+                {
+                    "id": "refundProcCust",
+                    "subCatName":"Refund processed by airlines and also processed to customer",
+                    "data":"1. As we checked against the booking, we have already refunded an amount of Rs. {} on {Date} in your {EMTWallet/Corresponding mode of payment}."
+                },
+                {
+                    "id": "refundCredShellIndigo",
+                    "subCatName":"Refund process by airlines in credit shell – Indigo",
+                    "data":"1. We would like to inform you that an amount of Rs. {} is already processed by {Airlines name} in the form of a credit-shell.\n2. To redeem your credit-shell, please follow the process mentioned at {https://www.easemytrip.com/offers/indigo-credit-shell.html} – \nStep 1: Customers must search for Indigo flight of their preferred date and time. \nStep 2: Enter the same email address and mobile number that a customer has entered in the old booking. \nStep 3: User to enter first & last name of the passenger(s) same as present in the old booking. \nStep 4: On the payment page, users must select “Indigo Credit Shell”. Provide PNR Number & follow the process. \nStep 5: Click on 'Make Payment' button to make your new booking."
+                },
+                {
+                    "id": "refundCredShellSpiceJet",
+                    "subCatName":"Refund process by airlines in credit shell – Spicejet",
+                    "data":"1. We would like to inform you that an amount of Rs. {} is already processed by {Airlines name} in the form of a credit-shell.\n2. To redeem your credit-shell, please follow the process mentioned at SpiceJet- {https://www.easemytrip.com/offers/spicejet-credit-shell.html} \nStep 1: Customers must search for Spice jet flight of their preferred date and time. \nStep 2: Enter the same email address and mobile number that a customer has entered in the old booking.\nStep 3: User to enter first & last name of the passenger(s) same as present in the old booking. \nStep 4: On the payment page, users have to select “Spice jet Credit Shell”. Provide PNR Number & follow the process. \nStep 5: Click on 'Make Payment' button to make your new booking."
+                },
+                {
+                    "id": "refundPendNotClaim",
+                    "subCatName":"Refund pending from airlines and not yet claimed by customer",
+                    "data":"1. We would like to inform you that we haven't yet received approval on the refund from {airlines name} on your flight for Booking id: {} and PNR: {}.\n2. Kindly submit a cancellation request on our self-service tool - https://mybookings.easemytrip.com/ with appropriate reason so we can raise/escalate your request  to the airlines.\nTo cancel/claim refund of your booking.\nStep 1: Log-in into EaseMyTrip self-service portal (https://mybookings.easemytrip.com/) as a guest or signed-in user.\nStep 2: Retrieve Booking >> Cancel flight \nStep 3: Select passenger(s) and itinerary to cancel >> Choose your reason to cancel/claim refund >> Check Refund/Cancel >> Claim Refund "
+                },
+                {
+                    "id": "refundPendClaim1",
+                    "subCatName":"Refund pending from airlines, claimed by customer and Air-India RA Pending - 1st time",
+                    "data":"1. As we have checked against the booking our operations team is persistently following up on your case with the airlines, but Air-India haven't yet approved the refund for your booking.\n2. As per our latest conversation with Air-India officials, we have been informed that they will take another 45- 90 days to approve the refund as they are working with limited resources due to covid-19 pandemic.\n3. We would request your patience and also like to assure you that the legitimate refunds will be processed automatically on your cancellation request once the refund is approved by the airlines."
+                },
+                {
+                    "id": "refundPendClaim2",
+                    "subCatName":"Refund pending from airlines, claimed by customer and Air-India RA Pending - 2nd time",
+                    "data":"1. As we have checked against the booking Refund application applied by us on {Date} is still pending to be approved by Air-India under Refund application Number - {RA Numbers} \n2. As per our latest conversation with Air-India officials, we have been informed that they will take another 45- 90 days to approve the refund as they are working with limited resources due to covid-19 pandemic \n3. We would request your patience and also like to assure you that the legitimate refunds will be processed automatically on your cancellation request once the refund is approved by the airlines."
+                },
+                {
+                    "id": "refundPendClaim3",
+                    "subCatName":"Refund pending from airlines, claimed by customer and Air-India RA Pending - 3rd time",
+                    "data":"1. Refund application applied by us on {Date} is still pending to be approved by Air-India under Refund application Number - {RA Numbers}\n2. As being your travel consultant we would like to request you to write an email to airlines at delrefunds@airindia.in from your end since airlines are expediting the refunds in some of the cases, where customers are approaching and escalating to them directly."
+                },
+                {
+                    "id": "lessRefundParList",
+                    "subCatName":"Less refund processed to customer after adding/already added in partial list",
+                    "data":"1. I would like to inform you that the refund of Rs. {amount} has been already processed in your {EMT-Wallet/Corresponding mode of payment}, Additional refund amount of Rs. {Amount} couldn't be processed due to some technical/operational glitches at airlines/banks & our end. \n2. Please be assured that we already have your case in our list of exceptions and our operations team is persistently following with our partner airlines/banks to solve this case."
+                },
+                {
+                    "id": "pgErrRefund",
+                    "subCatName": "PG-Error-Refund",
+                    "data":"1. I would like to inform you that your refund couldn't be processed due to some technical/operational glitches at airlines/banks & our end.\n2. Please be assured that we already have your case in our list of exceptions and our operations team is persistently following with our partner airlines/banks to solve this case."
+                },
+                {   
+                    "id": "salePrcAmt",
+                    "subCatName":"Customer asking for sale purchase amount",
+                    "data":"1. The total fare paid to EaseMyTrip is clearly mentioned in the e-Ticket which is total cost of the ticket.\n2. The sale purchase difference with airline is something that is borne by us.\n3. Just like we do not ask for any extra money when the cost of the ticket increases similarly, we would not be able to give you the difference when fare reduced.\n4. The fare difference in non-refundable."
+                },
+                {
+                    "id": "noPassCheq",
+                    "subCatName":"I don’t have passbook and cheque copy.",
+                    "data":"1. I would like to inform you that due to audit and regulatory requirements, Scanned copy of Cancelled cheque or passbook or bank statement is currently mandatory.\n2. We would also like to inform that if you wish to transfer EMTCASH to bank, please follow below steps\nStep 1: Login in on self-service portal (https://mybookings.easemytrip.com) \nStep 2: Click on Transfer wallet money to bank \nStep 3: Enter Account number and IFSC code of the traveller’s account (Whose name shall appear in dropdown) \nStep 4: Upload the Cancelled Cheque/Passbook /E-statement (In case of cheque book or passbook not available) wherein name of account holder, bank account and IFSC code should be clearly visible in jpeg format. Cheque leaf should bear account holder’s name. \nNote: Currently this option is not available on app "
+                },
+                {
+                    "id": "refundDone",
+                    "subCatName":"Refund Done",
+                    "data":"1. We would like to inform you that your refund has already been processed from our end and you will get it in the same mode of payment within 7 – 8 working days from refund date. \n2. Please find below refund details:\n\tBooking Id: EMTxxxxxxx\n\tRefund Amount :xxxxx\n\tRefund Date: DD-MM-20YY\n\tTransaction reference ID :xxxxxx\nIn case the refund is not reflecting in your same account please contact bank directly."
+                },
+                {
+                    "id": "convfeeNonRefund",
+                    "subCatName":"Convenience fee Non Refundable",
+                    "data":"Dear Customer,\nIf you apply any coupon code to take further discounts convenience fees would be applicable and this is non-refundable.\nWe understand that the flight got cancelled by the airline however convenience fees would still be applicable for the services that was provided by us for making a booking.\nFurther to this, EaseMyTrip also must ensure that the refund is initiated, and you get your money at the earliest. This involves continues follow up calls and emails to the airline.\nI hope you understand and enable us to promote and grow as one of the topmost Indian travel company."
+                },
+                {
+                    "id":"partRefundPax",
+                    "subCatName":"Partial refund as the pax charged with 1 rupee as cancellation charge. No full refund initiated  ( Re-1 charged no full refund initiated )",
+                    "data":"Dear Customer,\nAs we have checked we have found a full refund from the airlines end though the convenience fees in nonrefundable however we see that a service charge has been applied.\nRequest to give me an hour while I get you the confirmation on the refund. I will call you back with a confirmation of the same."
+                },
+                {
+                    "id":"airFullRefund",
+                    "subCatName":"Airline had promised me a full refund please initiate the same (Refund not received by EMT)",
+                    "data":"Dear Customer,\nI hope you understand that being a travel partner our motive has always been to be transparent to our customers.\nKeeping this in we would request your patience and would like to assure you that the legitimate refunds will be processed only once received from the airlines\nRequest you to kindly wait until the same received by us."
+                },
+                {
+                    "id":"salePurchase",
+                    "subCatName":"Sale purchase amount as refund.",
+                    "data":"Dear Customer,\nThe total fare paid to EaseMyTrip is clearly mentioned in the e-Ticket which is total cost of the ticket.\nThe sale purchase difference with airline is something that is borne by us.\nJust like we do not ask for any extra money when the cost of the ticket increases similarly, we would not be able to give you the difference in fare when reduced.\nThe fare difference in non-refundable."
+                },
+                {
+                    "id":"dualBook",
+                    "subCatName":"Customer did the dual booking as he/she have not received notification for the first booking. When customer tried to claim full refund for the first one, airlines asked to contact with travel agency. (Dual booking -airline asked to contact -EMT)",
+                    "data":"Dear Customer,\nWhen checked we have found 2 bookings made. When checked the bookings have your email address as (email address). We have checked form the backend and found that a notification of the booking confirmation was sent.\nUsually, when something like this happens, we insist our customers to call/email/chat with us so that we could immediately share the status of your booking.\nHence, request you to place in a cancellation request and get refund with normal cancellation charges"
+                },
+                {
+                    "id":"presistentStill",
+                    "subCatName":"Incase customer is still persistent then,",
+                    "data":"Dear Customer,\nSince, you have been so persistent we are writing an email on your behalf to the airline requesting a full refund. We are copying you on that email so that transparency in maintained on the actionable."
+                }
+            ]
+        },
+        {
+            "catName":"Wallet Refund",
+            "id":"walletrefund",
+            "subData":[
+                {
+                    "id": "noShowEmtAcc1",
+                    "subCatName":"Wallet Amount is not showing in EMT account (1st time)",
+                    "data": "1. I would like to request you to delete your browser cookies and try logging in again at https://mybookings.easemytrip.com/ with your user name and password, Your login credentials are also sent to your registered email address every time when refund is processed to your EMTWallet.\n2. If you are still facing any error to login or to see your Balance Amount, Please reply with a screenshot and description of the error.\n3. To reset your password: Please use forgot password option available at https://mybookings.easemytrip.com/\n4. For more details on EMTWallet, please visit: https://www.easemytrip.com/emt-wallet/offer.html"
+                },
+                {
+                    "id": "noShowEmtAcc2",
+                    "subCatName":"Wallet Amount is not showing in EMT account (2nd Time)",
+                    "data":"1. I would like to inform you that your concern has now been forwarded to our product and tech team.\n2. We would request your patience for the next 48 - 72 hours.\n3. To reset your password: Please use forgot password option available at mybookings.easemytrip.com\n4. For more details on EMT-Wallet, please visit: https://www.easemytrip.com/emt-wallet/offer.html"
+                },
+                {
+                    "id": "noReflectPdBook",
+                    "subCatName":"Wallet Amount is not reflecting in my bank account (showing pending in booking retrieval page)",
+                    "data":"1. I would like to inform you that your request to transfer EMT-Cash from EMT-Wallet to your bank account is pending for verification.\n2. Our operations team is currently working on your case and will get in touch with you in case of any requirement.\n3. Please also note that the process to transfer your refund from EMT-Wallet to your bank account is a manual process, which takes 2 - 15 days for the verification to be completed.\n Kindly also go through the process mentioned in the transfer request confirmation email sent to your registered email address at the time when your transfer request was submitted.\n4. EMT Wallet Details: https://www.easemytrip.com/emt-wallet/offer.html"
+                },
+                {
+                    "id": "noReflectConfBook",
+                    "subCatName":"Wallet Amount is not reflecting in my bank account (showing confirmed in booking retrieval page)",
+                    "data":"1. I would like to inform you we have already processed your request to transfer your EMT--Cash from EMT-Wallet to your bank account on {Date}\n2. Your bank may take up to 7 days to reflect the amount in your bank statement.\n3. An auto-confirmation email was also sent to your registered email address confirming the details of the transfer.\n4. For more details on EMT-Wallet, please visit: https://www.easemytrip.com/emt-wallet/offer.html"
+                },
+                {
+                    "id": "wltRefundProc",
+                    "subCatName":"Wallet refund procedure",
+                    "data":"1. We would like to inform you that your refund has already been processed from our end in EMT wallet which can be used to make future bookings for flights, hotels, bus etc. \n2. Please find below refund details: \n Booking Id: EMTxxxxxxx \n Refund Amount: xxxxx \n Refund Date: DD-MM-20YY \n3. We would also like to inform that if you wish to transfer EMTCASH to bank, please follow below steps \nStep 1: Login in on self-service portal (https://mybookings.easemytrip.com)   \nStep 2: Click on Transfer wallet money to bank  \nStep 3: Enter Account number and IFSC code of the traveler’s account (Whose name shall appear in dropdown)  \nStep 4: Upload the Cancelled Cheque/Passbook /E-statement (In case of cheque book or passbook not available) wherein name of account holder, bank account and IFSC code should be clearly visible in jpeg format. Cheque leaf should bear account holder’s name.  \nNote: Currently this option is not available on app"
+                },
+                {
+                    "id": "emtCashTransAcc",
+                    "subCatName":"Can I transfer EMTcash to my friends and relatives Account.",
+                    "data":"1. I would like to inform you that due to audit and regulatory requirements, Scanned copy of Cancelled cheque or passbook or bank statement is currently mandatory. \n2. No, you cannot transfer your EMTCash to your friends and relative's bank account. You can only request to transfer EMTCash to the corresponding passenger's bank account. \n3. We would also like to inform that if you wish to transfer EMTCASH to bank, please follow below steps \nStep 1: Login in on self-service portal (https://mybookings.easemytrip.com) \nStep 2: Click on Transfer wallet money to bank \nStep 3: Enter Account number and IFSC code of the traveller’s account (Whose name shall appear in dropdown) \nStep 4: Upload the Cancelled Cheque/Passbook /E-statement (In case of cheque book or passbook not available) wherein name of account holder, bank account and IFSC code should be clearly visible in jpeg format. Cheque leaf should bear account holder’s name. \nNote: Currently this option is not available on app"
+                },
+                {
+                    "id": "partRefundWaltAcc",
+                    "subCatName":"Partial refund in wallet and partial in account----------------Done",
+                    "data":"Dear Customer,\nWe would like to inform you that we have already refunded a partial amount in the same mode of payment.\nAfter persistent follow ups with the airlines, we have got your refund of the partial amount approved from {Airlines name} on booking id {} for PNR - {}.\nYou would be glad to know that the same has been added into your EMT wallet and can used for your future booking with us.\nAlso, if you wish to get the same in your account request you kindly follow the below procedure to get same done.\nStep 1: Login in on self-service portal (https://mybookings.easemytrip.com)  \nStep 2: Click on Transfer wallet money to bank \nStep 3: Enter Account number and IFSC code of the traveler’s account (Whose name shall appear in dropdown) \nStep 4: Upload the Cancelled Cheque/Passbook /E-statement (In case of cheque book or passbook not available) wherein name of account holder, bank account and IFSC code should be clearly visible in jpeg format. Cheque leaf should bear account holder’s name.\nNote: Currently this option is not available on app"
+                },
+                {
+                    "id": "partRefundWaltAccPax",
+                    "subCatName":"Customer refund amount is refunded in his wallet account but pax is unable to login with the same. (Wallet refund -unable to login)-----------done",
+                    "data":"Dear Customer,\nWe would like to know the error you are facing while logging in. \n• Unable to get the OTP on mobile number\n• Unable to get the OTP on email address\n• I do not remember the registered emails address/mobile number.\n• Anything else: please mention the error.\nOnce you share the reason, we would escalate it further and get it rectified as soon as possible."
+                },
+                {
+                    "id":"wltAccTransRej",
+                    "subCatName":"Wallet to account transfer rejected-Done",
+                    "data":"Dear Customer,\nWe would like to inform you that the wallet to account transfer can only happen to the traveler’s account. Thus, only upload the traveler’s information. (Scanned copy of Cancelled cheque or passbook or bank statement)\nSecondly, the details that you upload should be clear so that it can audited as per regulatory requirements"
+                },
+                {
+                    "id":"wltRefundNoUpdate",
+                    "subCatName":"Wallet Refund details no update.-Done",
+                    "data":"Dear Customer,\nWe would like to inform you that an email was sent on your registered email address. However, since did not receive the same we apologize for the inconvenience. \nI would like to take you through the process,\nEMT-Wallet is to store your cancellation refunds and cashbacks that can be used to make flight booking, hotel booking, cab booking, or any other travel booking on EaseMyTrip.\nSince, there is no validity this can be used for your future booking with us.\nIncase, you do not wish to use the wallet amount and wish refund the same can be done by uploading the Cancelled Cheque/Passbook in which wish he refund and balance will transfer in that account only.\nStep 1: Login in on self-service portal (https://mybookings.easemytrip.com)  \nStep 2: Click on Transfer wallet money to bank \nStep 3: Enter Account number and IFSC code of the traveler’s account (Whose name shall appear in dropdown) \nStep 4: Upload the Cancelled Cheque/Passbook /E-statement (In case of cheque book or passbook not available) wherein name of account holder, bank account and IFSC code should be clearly visible in jpeg format. Cheque leaf should bear account holder’s name. \nNote: Currently this option is not available on app"
+                },
+                {
+                    "id":"noResonRejWaltTrans",
+                    "subCatName":"No reason for rejection of wallet to account transfer-Done",
+                    "data":"Dear Customer,\nPlease find the reasons due to which the wallet to account transfer was rejected,\n• Name not reflecting on the cheque in signature field\n• Name not matching with travelers’ name\n• Accounts number mentioned through my booking section not matching with the cheque picture\n• IFSC code not matching probably because of change in branch\n• Cheque picture not clear\nRequest you to kindly initiate the transfer after rechecking these."
+                },
+                {
+                    "id":"waltRefundEmailInval",
+                    "subCatName":"Wallet refund done but the email id is not valid anymore, how should I transfer the amount to my bank account with valid email id.(Wallet refund -email id not valid any more )",
+                    "data":"Dear Customer,\nWe are very sorry however, since the email address mentioned is already updated and the refund has already been initiated changes is restricted.\nWe would request you to use the wallet amount for future bookings with us. It has no validity and thus it is safe with us."
+                },
+                {
+                    "id":"repeatRejectWaltTrans",
+                    "subCatName":"Repeated Rejection in wallet to bank transfer but no clarity on mail whet is the exact error (Wallet refund -rejection)",
+                    "data":"Dear Customer,\nPlease find the reasons due to which the wallet to account transfer was rejected,\n• Name not reflecting on the cheque in signature field\n• Name not matching with travelers’ name\n• Accounts number mentioned through my booking section not matching with the cheque picture\n• IFSC code not matching probably because of change in branch\n• Cheque picture not clear\nRequest you to kindly initiate the transfer after rechecking these."
+                },
+                {
+                    "id":"custAirRefundPend",
+                    "subCatName":"Customer had called up Airlines and as per airline, the refund is pending from EMT not from Airlines. (Refund pending form EMT as per airline)-Done",
+                    "data":"Dear Customer,\nEaseMyTrip is the only travel company that has been initiating refunds to customer in their wallets. In addition, this we are also giving an option of transferring the money from wallet to account.\nWe assure you that any legitimate refund that is approved by airline is not pending from us.\nAs soon as we get the approvals our system is so efficient that it initiates the same to the customer.\nIf an airline is committing on the refunds initiated to us already would request, you to share a written document indicating so."
+                },
+                {
+                    "id":"multBookemtfirst",
+                    "subCatName":"Customer made multiple bookings from multiple email addresses to opt EMTFIRST coupon code and wants the wallet amount under single email address (Multiple bookings using EMTFIRST-wallet refund)-",
+                    "data":"Dear Customer,\nSince the booking are made through unique email address the wallet amount would be reflected in the respective email address only.\nIn addition to this the wallet to account transfer will also be done in the traveler’s account only."
+                }
+            ]
+        },
+        {
+            "catName":"Reschedule",
+            "id":"reschedule",
+            "subData":[
+                {
+                    "id": "unResch1",
+                    "subCatName":"Unable to reschedule (1st time without screenshot and flight is reschedulable)",
+                    "data":"1. We would like to inform you to share the screenshot and description of the error so as we can forward it to the concerned team. \n2. To reschedule/modify your booking: \nStep 1: Log-in into EaseMyTrip self-service portal (https://mybookings.easemytrip.com/) as a guest or signed-in user. \nStep 2: Retrieve Booking >> Reschedule >> Change/Modify Itinerary \nStep 3: Change your travel date >> Search Flight >> Choose Flight >> Add Passenger >> Pay fare difference and reschedule penalty (If any) >> Booking Confirmation"
+                },
+                {
+                    "id": "unResch2",
+                    "subCatName":"Unable to reschedule (2nd time without screenshot and flight is reschedulable)",
+                    "data":"1. I would like to inform you that your concern has now been forwarded to our product and tech team. \nWe would request your patience for the next 48 - 72 hours.\n2. To reschedule/modify your booking: \nStep 1: Log-in into EaseMyTrip self-service portal (https://mybookings.easemytrip.com/) as a guest or signed-in user. \nStep 2: Retrieve Booking >> Reschedule >> Change/Modify Itinerary \nStep 3: Search Flight >> Choose Flight >> Add Passenger >> Pay fare difference and reschedule penalty (If any) >> Booking Confirmation"
+                },
+                {
+                    "id": "refAppAirNoProcCust",
+                    "subCatName":"Unable to Reschedule -Refund is approved from airlines but not processed to customer",
+                    "data":"1. I would like to inform you that you will not be able to reschedule your flight for booking id: {} and PNR: {} as your booking is cancelled. After persistent follow ups with the airlines, we have also got your refund approved from {Airlines name}. \n2. Kindly claim your refund from our self-service tool - https://mybookings.easemytrip.com/ as mentioned in our Website and App \nTo cancel/claim refund of your booking. \nStep 1: Log-in into EaseMyTrip self-service portal (https://mybookings.easemytrip.com/) as a guest or signed-in user. \nStep 2: Retrieve Booking >> Cancel flight \nStep 3: Select passenger(s) and itinerary to cancel >> Choose your reason to cancel/claim refund >> Check Refund/Cancel >> Claim Refund "
+                },
+                {
+                    "id": "refAppAirProcCust",
+                    "subCatName":"Unable to Reschedule -Refund is approved from airlines and processed to customer",
+                    "data":"1. I would like to inform you that you will not be able to reschedule your flight for booking id: {} and PNR: {} as you have requested for a refund, which is still pending to be approved by the airlines.\n2. We would request your patience and also like to assure you that the legitimate refunds will be processed automatically on your cancellation request once the refund is approved by the airlines.\n3. To cancel/claim refund of your booking. \nStep 1: Log-in into EaseMyTrip self-service portal (https://mybookings.easemytrip.com/) as a guest or signed-in user. \nStep 2: Retrieve Booking >> Cancel flight \nStep 3: Select passenger(s) and itinerary to cancel >> Choose your reason to cancel/claim refund >> Check Refund/Cancel >> Claim Refund ."
+                },
+                {
+                    "id": "pnltEmtWvAir",
+                    "subCatName":"Unable to Reschedule-showing penalty in EMT while waved off by airlines",
+                    "data":"1. I would like to inform you that your concern has now been forwarded to our product and tech team. \n2. We would request your patience for the next 48 - 72 hours.\n3. To cancel/claim refund of your booking. \nStep 1: Log-in into EaseMyTrip self-service portal (https://mybookings.easemytrip.com/) as a guest or signed-in user. \nStep 2: Retrieve Booking >> Cancel flight \nStep 3: Select passenger(s) and itinerary to cancel >> Choose your reason to cancel/claim refund >> Check Refund/Cancel >> Claim Refund"
+                },
+                {
+                    "id": "chkIn",
+                    "subCatName":"Web Check-in",
+                    "data":"Web check-in is now mandatory.\nWe have made it easier for you, for boarding-pass or check your flight status here: https://bit.ly/WCHECKIN \nWeb-check in can be done between 90 min to 48 hours prior flight departure"
+                },
+                {
+                    "id":"reschdlfirst",
+                    "subCatName":"“Unable to reschedule (1st time without screenshot and flight is reschedulable)”",
+                    "data":"We would like to inform you to share the screenshot and description of the error so as we can forward it to the concerned team.\n-----------------------\nTo reschedule/modify your booking:\nStep 1: Log-in into EaseMyTrip self-service portal (mybookings.easemytrip.com) as a guest or signed-in user.\nStep 2: Retrieve Booking >> Reschedule >> Change/Modify Itinerary\nStep 3: Change your travel date >> Search Flight >> Choose Flight >> Add Passenger >> Pay fare difference and reschedule penalty (If any) >> Booking Confirmation"
+                },
+                {
+                    "id":"reschdlSec",
+                    "subCatName":"“Unable to reschedule (2nd time without screenshot and flight is reschedulable)”",
+                    "data":"1.I would like to inform you that your concern has now been forwarded to our product and tech team.\nWe would request your patience for the next 48 - 72 hours.\n-----------------------\n2. To reschedule/modify your booking:\nStep 1: Log-in into EaseMyTrip self-service portal (mybookings.easemytrip.com) as a guest or signed-in user.\nStep 2: Retrieve Booking >> Reschedule >> Change/Modify Itinerary\nStep 3: Search Flight >> Choose Flight >> Add Passenger >> Pay fare difference and reschedule penalty (If any) >> Booking Confirmation"
+                },
+                {
+                    "id":"reschdlunRefund",
+                    "subCatName":"“Unable to Reschedule -Refund is approved from airlines but not processed to customer”",
+                    "data":"1.I would like to inform you that you will not be able to reschedule your flight for booking id: {} and PNR: {} as your booking is cancelled. After persistent follow ups with the airlines, we have also got your refund approved from {Airlines name}.\n2.Kindly claim your refund from our self-service tool - mybookings.easemytrip.com as mentioned in our Website and App\n---------------------------\nTo cancel/claim refund of your booking.\nStep 1: Log-in into EaseMyTrip self-service portal (mybookings.easemytrip.com) as a guest or signed-in user.\nStep 2: Retrieve Booking >> Cancel flight\nStep 3: Select passenger(s) and itinerary to cancel >> Choose your reason to cancel/claim refund >> Check Refund/Cancel >> Claim Refund"
+                },
+                {
+                    "id":"reschdlProcess",
+                    "subCatName":"Unable to Reschedule -Refund is approved from airlines and processed to customer”",
+                    "data":"1. I would like to inform you that you will not be able to reschedule your flight for booking id: {} and PNR: {} as you have requested for a refund, which is still pending to be approved by the airlines.\n2. We would request your patience and also like to assure you that the legitimate refunds will be processed automatically on your cancellation request once the refund is approved by the airlines.\n---------------------------\n3. To cancel/claim refund of your booking.\nStep 1: Log-in into EaseMyTrip self-service portal (mybookings.easemytrip.com) as a guest or signed-in user.\nStep 2: Retrieve Booking >> Cancel flight\nStep 3: Select passenger(s) and itinerary to cancel >> Choose your reason to cancel/claim refund >> Check Refund/Cancel >> Claim Refund ."
+                },
+                {
+                    "id":"unReschPenlty",
+                    "subCatName":" Unable to Reschedule-showing penalty in EMT while waved off by airlines”",
+                    "data":"1.I would like to inform you that your concern has now been forwarded to our product and tech team.\n2.We would request your patience for the next 48 - 72 hours.\n---------------------------\n3.To cancel/claim refund of your booking.\nStep 1: Log-in into EaseMyTrip self-service portal (mybookings.easemytrip.com) as a guest or signed-in user.\nStep 2: Retrieve Booking >> Cancel flight\nStep 3: Select passenger(s) and itinerary to cancel >> Choose your reason to cancel/claim refund >> Check Refund/Cancel >> Claim Refund"
+                },
+                {
+                    "id":"noRefReschdAvail",
+                    "subCatName":"No refund only reschedule option available",
+                    "data":"Dear Customer,\nAs your travel partner, we have made multiple attempts to ensure that you get the refund however, as of now the airline is only giving an option of reschedule. \nWe also understand you do not have any recent plans to travel however the airline has given an option of using the same for a year. \nRequest you to kindly consider the same. Please let us know if you need any assistance in doing so."
+                },
+                {
+                    "id":"goAirUnableReschedule",
+                    "subCatName":"Go air flight got cancelled and when I tried calling the booking from your website, I am unable to reschedule it neither full refund.( Go air flight got cancelled-No refund /No re-issue )",
+                    "data":"Dear Customer,\nWe would request to wait for making any changes/requesting full refund, as of now your flight is still in confirmed status with the airline.\nOnly once the airline updates the status of the booking you may request changes/claim refund accordingly.\nPlease be noted that it completely depends on the airline to either give you an option for rescheduling or a full refund."
+                },
+                {
+                    "id":"vistaraResheduleDirect",
+                    "subCatName":"Vistara reschedule fare difference when customer rescheduled directly form the airline?( Vistara reschedule fare difference re-issue done directly with airline )",
+                    "data":"Dear Customer,\nWhen checked we have found that the ticket was rescheduled by you directly from the airline wherein the same could have easily done on our website/app.\nNow, since you have directly transacted with the airline, we would request you get the refund from them.\nIn case you still face challenges request you to seek a written confirmation from the airline."
+                },
+                {
+                    "id":"updateFlightStat",
+                    "subCatName":"To get the update on flight status when they hear in news or get an e-mail from airline regarding cancellation/rescheduling in case of refund not received or refund discrepancy(refund discrepancy- email/SMS/news)",
+                    "data":"Dear Customer,\nWe would like to inform you that as of now we do not have an update from the airline on your refund status.\nHere, you do not have to worry about the refund if the refund is legitimate the same would be refunded to you in your account or wallet.\nFor reschedule request you to follow the below,\nTo reschedule/modify your booking:\nStep 1: Log-in into EaseMyTrip self-service portal (mybookings.easemytrip.com) as a guest or signed-in user.\nStep 2: Retrieve Booking >> Reschedule >> Change/Modify Itinerary\nStep 3: Search Flight >> Choose Flight >> Add Passenger >> Pay fare difference and reschedule penalty (If any) >> Booking Confirmation"
+                },
+                {
+                    "id":"unRescheduleWeb",
+                    "subCatName":"Unable to reschedule via website.",
+                    "data":"Dear Customer,\nLet me call you and find out the exact challenges and would resolve them putting my best foot forward."
+                },
+                {
+                    "id":"resheduleNoNotify",
+                    "subCatName":"Flight is been rescheduled by the airline with time and date change and no notification sent from airline (No notification for flight to me and date change ) ",
+                    "data":"Dear Customer,\nWe would like to inform you that your details have been already shared with the airline. Thus, any changes that happens at the airlines end is usually informed by the airline. However, since this did not happen, we apologize for the same. I hope you understand that there are certain things that are not in our control. \nMeanwhile, we would request you to follow the below steps to get your booking rescheduled as per your convenience.\nFor rescheduling your booking, you may simply visit our self-servicing portal https://mybookings.easemytrip.com\nIt is absolutely user friendly making it easier for you to make any changes as per your requirements.\nIn case you face any challenges while doing so you are requested to seek assistance from our travel expert on 011-43030303/011-43131313. We would assist you in the best possible way."
+                }
+            ]
+        },
+        {
+            "catName":"RA Refund",
+            "id":"rarefund",
+            "subData":[
+                {
+                    "id":"cancelReqSixMon",
+                    "subCatName":"What rebuttal can we give in case booking (Air India) is in cancellation request for more than six months and cx asked then when shall I get the refund and what initiatives are, we taking to get the refund from airlines end (email already sent to airline keeping customer in loop yet no reply)?",
+                    "data":"Dear Customer,\nWe see that you have been rigorously following up with us for your refund. I also see that there is an email that we have sent to the airline requesting for a refund update.\nWe assure you that any legitimate refund that is approved by airline is not pending from us.\nAs soon as we get the approvals our system is so efficient that it initiates the same to the customer.\nIf an airline is committing on the refunds initiated to us already would request, you to share a written document indicating so."
+
+                },
+                {
+                    "id":"raPendingNoRefund",
+                    "subCatName":"RA pending and multiple reminders send to airline keeping customer loop yet no refund/response (RA pending)",
+                    "data":"Dear Customer,\nWe understand that apology would not be appreciated by you now as you have been following up rigorously for quite a sometime now.\nYou also know that EaseMyTrip is not holding onto your money and is making numerous attempts in getting your refund.\nWould appreciate your continued patience and request you to stand by us in the pursue of getting your money back."
+                },
+                {
+                    "id":"airCancelNoConsent",
+                    "subCatName":"Air India cancellation request raised without customers’ consent",
+                    "data":"Dear customer,\nWe understand your predicament here. The cancellation request was placed to so that the refund is initiated from the airline. We are sure that you are aware as to how challenging it is to get through any airline. We too are working with limited staff due the covid-19 pandemic. \nTo ensure that you do not face challenges in getting the refund we have initiated the same on your behalf. I hope you consider our actions positively and enable us to continue serving you better."
+                },
+                {
+                    "id":"raPending",
+                    "subCatName":"RA pending since long. Email sent to airline as well yet no reply",
+                    "data":"Dear Customer,\nYes, we do see that an email dated (***) was sent to the airline and they have not yet responded.\nWe too are continuously following up with the airline officials to get your refund as soon as possible\nWe would request your patience and would like to assure you that the legitimate refunds will be processed automatically on your cancellation request once the refund is approved by the airlines."
+                },
+                {
+                    "id":"raRefund",
+                    "subCatName":"RA Refund pending as it has been more than 90 days. Yet no update.",
+                    "data":"Dear Customer,\nWe understand that apologies would not suffice as is been a very long time since you have following up with us.\nRefund application is already applied by us on (dd/mm/yy) and the airline has yet to approve the same.\nTrust us being a travel consultant we would want that you get your refund at the earliest. Even after multiple email/calls/chats we are not getting any response from the airline.\nWe would like to request you to write an email to airlines at delrefunds@airindia.in from your end since airlines are expediting the refunds in some of the cases, where customers are approaching and escalating to them directly.\nWe would request your patience and like to assure you that the legitimate refunds will be processed automatically on your cancellation request once the refund is approved by the airlines."
+                }
+            ]
+        },
+        {
+            "catName":"Add On’s",
+            "id":"addons",
+            "subData":[
+                {
+                    "id":"noPassBaggage",
+                    "subCatName":"Unable to download boarding pass and baggage tag.",
+                    "data":"Dear Customer,\nFirstly, please find the attached boarding pass and baggage tag. Request you to go through the same and let me know if any issue.\nAlso, we would be glad to understand the error you are facing. Screenshots will be of great help to uproot the issue if any."
+                },
+                {
+                    "id":"addWheelchair",
+                    "subCatName":"To add wheelchair or other service request for travelers",
+                    "data":"Dear Customer,\nRequest you kindly share the name/names of the passenger for whom you need to add a wheelchair We would do the same for you.\nPN: Wheel chair availability depends on the airline."
+                },
+                {
+                    "id":"noWebCheckin",
+                    "subCatName":"Unable to do web check in",
+                    "data":"Dear Customer,\nThis is regarding the Booking id …………. and PNR …………………………….\nWeb check-in is now mandatory.\nWe have made it easier for you, for boarding-pass or check your flight status here: https://bit.ly/WCHECKIN\nWeb-check in can be done between 90 min to 48 hours prior flight departure"
+                },
+                {
+                    "id":"noRefund",
+                    "subCatName":"Customer paid seat amount directly to airline, but then the refund is not initiated from our end.",
+                    "data":"Dear Customer,\nApologies for the inconvenience and thank you for your information.\nWe would immediately contact the airline and get it done.\nYour patience is requested."
+                },
+                {
+                    "id":"seatDiff",
+                    "subCatName":"While doing the booking the selected seat is different and at the time of travel the seat mentioned is different.",
+                    "data":"Dear Customer,\nThere is are multiple reasons for which this must have happened,\n• The seat was sold before you requested for the same\n• The aircraft must have changed due to which the seat alignment also has changed.\nIf you wish to select the seat yourself or assign one while checking in, we would more than happily refund the seat amount."
+                },
+                {
+                    "id":"noMeal",
+                    "subCatName":"I had booked a meal however did not receive it in flight",
+                    "data":"Dear Customer,\nDue to COVID-19 airline are refusing meals in flight. However, I understand that you were able to add one and you have paid for the same.\nYou do not have to worry as I am initiating a refund for the meal amount.\nThe same has been refunded and would reflect in the next 7-10 working days.\nYour patience is appreciated"
+                },
+                {
+                    "id":"iciciInsDed",
+                    "subCatName":"I have booked ICICI insurance however it did not go through, and my money has been deducted.",
+                    "data":"Dear Customer,\nAs I have checked the money has been received however the insurance was not confirmed.\nThe same has been refunded and would reflect in the next 7-10 working days."
+                }
+            ]
+        },
+        {
+            "catName":"Customer Service",
+            "id":"customerservice",
+            "subData":[
+                {
+                    "id":"neverBook",
+                    "subCatName":"I will never book through EMT again",
+                    "data":"Dear Customer,\nI am sure that there must be a strong reason for you to say this. Looking at the history of your bookings you have been a frequent user and getting a statement like this is something that we cannot ignore. \nLet me call you and find out what exactly your issues are and would resolve them putting my best foot forward."
+                },
+                {
+                    "id":"callbackPromise",
+                    "subCatName":"Call back promised and did not receive",
+                    "data":"Dear Customer,\nIt is very unlikely that you have requested for a call back and did not receive one. There must me a reason for a delay in the call back. Apologies for the same.\nLet me call you and find out what exactly your issues are and would resolve them putting my best foot forward."
+                },
+                {
+                    "id":"notHappyReview",
+                    "subCatName":"Not happy with the EMT SERVICES. Hence, refuse for review: unable to connect with CC, No follow-up and proactive approach from EMT",
+                    "data":"Dear Customer,\nWould request you a brief synopsis on your grievances. I will assign a supervisor to address all your grievances asap."
+                },
+                {
+                    "id":"UnconnectDesk",
+                    "subCatName":"Unable to connect customer service desk",
+                    "data":"Dear Customer,\nCurrently we are working with limited people and thus you may have faced an issue connecting us. Alternatively, you my connect us through chat/email. \nWe would take immediate actions and resolve your query on priority."
+                },
+                {
+                    "id":"poorCmService",
+                    "subCatName":"Poor customer service",
+                    "data":"Dear customer,\nWe are repentant to hear about this experience that you had with our team members. We would investigate your issue on priority and would escalate this to my senior so that he/she would immediately take and action on the incompetence of our team.\nI am arranging an immediate call back from my escalation team to get all your queries resolved.\nRequest you to wait for 24 hours while you receive a call back from our escalation desk."
+                }
+            ]
+        },
+        {
+            "catName":"Reviews",
+            "id":"reviews",
+            "subData":[
+                {
+                    "id":"noEffortEmt",
+                    "subCatName":"If a caller states about the EMT efforts in taking follow-ups with Airlines. Then customer says that, there is no efforts from EMT as they themselves were taking follow ups.(Customer blaming EMT for taking no initiatives for refund)",
+                    "data":"Dear Customer,\nJust like you we as your travel partner are eager to ensure all legitimate refunds are initiated as soon as possible.\nThroughout the pandemic even when the airlines where not answering calls/emails we were available.\nThe follow ups with airline did not began today we have been doing this since months.\nNo doubt that your interference is an added advantage, and we are thankful to you.\nWhat matters at the end is your refund and your long association with us."
+                },
+                {
+                    "id":"askReviews",
+                    "subCatName":"Why are we asking for reviews?",
+                    "data":"Dear Customer,\nDuring this entire ongoing pandemic getting legitimate refunds from the airlines was tough.\nSince everyone are working with minimum staff, refunds where either getting delayed or were not getting initiated.\nAs a travel partner we have put in numerous efforts and manpower to get the legitimate refunds.\nTo keep us motivated and appreciate our efforts we are insisting on a review.\nIf not, a review we would appreciate your continued business with us."
+                },
+                {
+                    "id":"addBenifitsReview",
+                    "subCatName":"CM ask for additional benefit in return of providing review as EMT has not done any favor on them.",
+                    "data":"Dear Customer,\nWe are requesting for a review for you to motivate us to do better.\nWe do have any hidden agenda in adding the reviews. We only are requesting for genuine reviews.\nIf you are unhappy with our services request, you a brief synopsis on your grievances. I will assign a supervisor to address all your grievances asap."
+                },
+                {
+                    "id":"legitimatecall",
+                    "subCatName":"Received a call stating that they are from EaseMyTrip and were asking for FB was it a legitimate call?",
+                    "data":"Dear Customer,\nIf you received a call asking for feedback, then yes it was a legitimate call.\nHowever, please note that EaseMyTrip does not call for any OTP or any payments. For any new bookings we insist on visiting our user-friendly website/app. It contains all discounts, coupon codes and information that is required for your travel."
+                },
+                {
+                    "id":"otherBookingReviews",
+                    "subCatName":"Customer wants to know more about other bookings, hence refuse or denies for review.",
+                    "data":"Dear Customer,\nWe are calling you regarding the booking id EMT00000. This booking has been refunded after multiple follow ups by our team members.\nSimilarly, our team is working on other bookings as well which will take time and would appreciate your patience for the same.\nYour review will enable us to stay motivated and work towards other bookings as well.\nNevertheless, we do appreciate your continued business with us. Thank you"
+                },
+                {
+                    "id":"AirRefundProcessed",
+                    "subCatName":"We have informed customer that we followed up with airlines regarding refund and same has been processed; what rebuttal can we give in case cx conveys that he or she himself has took the initiative by following up with airlines and why cx will give a review the same? ( I followed up with the airline and got the refund. EMT did not do anything)",
+                    "data":"Dear Customer,\nWe completely are in an agreement that your intervention has been helpful in getting the refund from the airline.\nI hope that you are already aware about the multiple calls/emails that we have initiated to the airline in doing so.\nIn fact, there are customers whom we have insisted on sending an email to the airline to create an urgency.\nUltimately what mattered was getting the refund and the same has been received by you."
+                },
+                {
+                    "id":"cmReviewAfterRefund",
+                    "subCatName":"CM says that he will provide review only after another refund.",
+                    "data":"Dear Customer,\nI am sure the team is already working on it and you will receive and update a soon as the refund is initiated. Thank you."
+                }
+            ]
+        },
+        {
+            "catName":"Cancellation",
+            "id":"cancellation",
+            "subData":[
+                {
+                    "id":"pastBookingCancel",
+                    "subCatName":"In case of past dated booking, customer wants us to cancel.",
+                    "data":"Dear Customer,\nWe encourage our customers to make use of our self-service portal as it is absolutely user friendly. This will also enable you to do it yourself even for your future bookings.\nPlease follow the simple steps as below and let us know in case you face any challenges.\nTo cancel/claim refund of your booking.\nStep 1: Log-in into EaseMyTrip self-service portal (mybookings.easemytrip.com) as a guest or signed-in user.\nStep 2: Retrieve Booking >> Cancel flight\nStep 3: Select passenger(s) and itinerary to cancel >> Choose your reason to cancel/claim refund >> Check Refund/Cancel >> Claim Refund"
+                },
+                {
+                    "id":"partialRefundAGCS",
+                    "subCatName":"In case of partial refund in AG and CS and customer do not receive the refund for AG and receives for CS only. ( Refund not received for AG amount)",
+                    "data":"Dear Customer,\nAs I see the booking is partially refunded by credit shell which can be used to make future bookings.\nThe remaining amount can be claimed under full refund cancellation request that has to be placed through My booking section as below,\nTo cancel/claim refund of your booking.\nStep 1: Log-in into EaseMyTrip self-service portal (mybookings.easemytrip.com) as a guest or signed-in user.\nStep 2: Retrieve Booking >> Cancel flight\nStep 3: Select passenger(s) and itinerary to cancel >> Choose your reason to cancel/claim refund >> Check Refund/Cancel >> Claim Refund"
+                },
+                {
+                    "id":"noOtpCancel",
+                    "subCatName":"Not receiving any OTP for cancellation.",
+                    "data":"Dear Customer,\nPlease ensure that you use the same mobile number that you have used during booking the ticket with us\nIn case you still find an issue doing so please connect us through call follow the verification process and find out the registered mobile number with us."
+                },
+                {
+                    "id":"cancelrequestShowConfirm",
+                    "subCatName":"After raising the cancellation request still, the booking on easy office shows confirmed. (Booking status shows confirm-cancellation raised)",
+                    "data":"Dear Customer,\nLet me check this for you and call you back as soon as possible."
+                },
+                {
+                    "id":"cancelRequestPastDate",
+                    "subCatName":"Why should I place a cancellation request (past dated booking)? Why don’t you do it for me? (Past dated booking -  Cancellation request)",
+                    "data":"Dear Customer,\nWe at EaseMyTrip promote self-service. Thus, we have created our website and application in way that even a layman would be able to understand it.\nHere, we also suggest that more and more users visit our website/app and make bookings/modify bookings/ initiate refund etc. themselves.\nOur website/app shares the complete details that is required while doing so. This will also enable you to save time and do it yourself rather than calling/emailing or chatting with us."
+                },
+                {
+                    "id":"normalCancelTemp",
+                    "subCatName":"Normal cancellation template",
+                    "data":"Dear Customer,\nPlease find the below bifurcation of the charges that were levied upon cancellation of the booking,\nBooking id:\nAirline penalty:\nEMT cancellation service charge:\nConvenience fees:\nPlease feel free to ask in case of any query."
+                },
+                {
+                    "id":"bookCancelReq",
+                    "subCatName":"Booking under cancellation request",
+                    "data":"Dear Customer,\nWhen checked we have found that you have already placed a cancellation request. Since the booking is under cancellation request you are unable to reschedule the booking. \nPlease try rescheduling now and incase if you face any challenges let us know."
+                },
+                {
+                    "id":"pnrCancel",
+                    "subCatName":"PNR already cancelled by the airline",
+                    "data":"Dear Customer,\nWhen checked we have found that the PNR is already cancelled by the airline. Thus, request you to kindly place a cancellation request so that a refund can be initiated."
+                },
+                {
+                    "id":"alreadyRefund",
+                    "subCatName":"Already refunded",
+                    "data":"Dear Customer,\nWhen checked we have found that the PNR is already cancelled by the airline and a full refund is also initiated. Thus, request you to kindly place a cancellation request so that a refund can be initiated by us."
+                },
+                {
+                    "id":"rescheduleRefund",
+                    "subCatName":"I did not initiate a refund against my booking, when I called the airline for a reschedule, they informed me that my booking is already refunded. (Already refunded airline-Refund claim)-Refund ",
+                    "data":"Dear customer, \nWe understand your predicament here. The cancellation request was placed to so that the refund is initiated from the airline. We are sure that you are aware as to how challenging it is to get through any airline. We too are working with limited staff due the covid-19 pandemic. \nTo ensure that you do not face challenges in getting the refund we have initiated the same on your behalf. I hope you consider our actions positively and enable us to continue serving you better.\nNow since the refunded from the airline I would request you to place in a cancellation request from our self-service portal and initiate the refund in your account.\nTo cancel/claim refund of your booking.\nStep 1: Log-in into EaseMyTrip self-service portal (mybookings.easemytrip.com) as a guest or signed-in user.\nStep 2: Retrieve Booking >> Cancel flight\nStep 3: Select passenger(s) and itinerary to cancel >> Choose your reason to cancel/claim refund >> Check Refund/Cancel >> Claim Refund"
+                },
+                {
+                    "id":"noShowBookRefund",
+                    "subCatName":"To claim refund of No-Show booking",
+                    "data":"Dear Customer, to claim the no show booking refund, we would request you to login unto my booking section and place in a request.\nFor opting the no show refund, you may simply visit our self-servicing portal https://mybookings.easemytrip.com\nIt is absolutely user friendly making it easier for you to make any changes as per your requirements.\nIn case you face any challenges while doing so you are requested to seek assistance from our travel expert on 011-43030303/011-43131313. We would assist you in the best possible way."
+                }
+            ]
+        },
+        {
+            "catName":"Train Templates",
+            "id":"traintemplates",
+            "subData":[
+                {
+                    "id":"noRefundProcess",
+                    "subCatName":"Train Booking shows refunded in Easy office, but no refund processed from our end.(Train Refund Not processed)",
+                    "data":"Dear Customer,\nThe same has been refunded and would reflect in the next 7-10 working days."
+                },
+                {
+                    "id":"chargresCancel",
+                    "subCatName":"Why the charges are not visible before raising the cancellation request on IRCTC.(Charges not visible -IRCTC) ",
+                    "data":"Dear Customer,\nIRCTC is a portal that has been maintained and managed by IRCTC thus we have no rights to make any changes. Request you to kindly call us before cancellation and we would be able to share the charges"
+                },
+                {
+                    "id":"cancelEaseOffConfirm",
+                    "subCatName":"In case of bus booking, it shows cancelled requested in easy office but at the backend booking shows confirm.",
+                    "data":"Dear Customer,\nWe would immediately escalate the same to the bus operator as this is cancelled by the bus operator itself without intimating us.\nWe would ask for a full refund on your behalf from the operator."
+                },
+                {
+                    "id":"canceloptUnavail",
+                    "subCatName":"Why we cannot cancel the booking from your website wherein the booking has been done from your website itself for bus and train (Cancellation option not available on website/app – Bus/train)",
+                    "data":"Dear Customer,\nIt is our motto to enhance the customer satisfaction thus we are frequently adding new updates and processes for our customers.\nThis too is one of our preferences. Thus, we would request you to give us sometime in doing so.\nMeanwhile, you may let us know we do the needful for you."
+                }
+            ]
+        },
+        {
+            "catName":"Booking Amendments- (Changes in existing booking)",
+            "id":"bookingAmendments",
+            "subData":[
+                {
+                    "id":"updateBooking",
+                    "subCatName":"How can I update my mail id/Contact no. after doing the booking?",
+                    "data":"Dear Customer,\nWe would go ahead and mention your updated details with the airline so that you do not miss out on any updates sent from them.\nHowever, for any information regarding your booking with us the information would remain the same that was used during the booking.\nFor any communication with kindly use the booking id that starts with EMT."
+                },
+                {
+                    "id":"defenceBookUpdate",
+                    "subCatName":"In case of defense booking, it did not ask me for the defense no. how can id update the same. (Defence id – need to be updated)",
+                    "data":"Dear Customer,\nIt is mandatory for you to check the box mentioned on our website for defence forces fares.\nUntil you do not check the box the defense id/no would not be asked, and the booking would be initiated as a layman.\nNow since the booking is already created, we would not be able to update the same."
+                },
+                {
+                    "id":"nameCorrect",
+                    "subCatName":"Name correction",
+                    "data":"Dear Customer,\nWe would like to inform you that a complete change in name is not possible.\nRequest you to share the changes that you are looking for.\nWe would coordinate with the airline in case of any minor changes. However, this is completely dependent on the airline."
+                }
+            ]
+        },
+        {
+            "catName":"Booking status",
+            "id":"bookingstatus",
+            "subData":[
+                {
+                    "id":"bookingConfirm",
+                    "subCatName":"Booking confirmed",
+                    "data":"Dear customer,\nWe would like to inform that your booking is confirmed with us.\nSharing the e-ticket for your reference as an attachment."
+                },
+                {
+                    "id":"paymentDone",
+                    "subCatName":"Payment done",
+                    "data":"Dear Customer,\nLet me investigate the issue and call you back asap."
+                },
+                {
+                    "id":"bookingReject",
+                    "subCatName":"Booking rejected",
+                    "data":"Dear Customer,\nWe are very sorry that your booking was rejected. This could happen for reasons like sudden hike in the fares or non-availability of seats.\nI hope you understand that there are some things that are not under our control.\nWe have already initiated a full refund which would reflect in the same mode of payment in the next 7-10 working days."
+                }
+            ]
+        },
+        {
+            "catName":"E-Ticket/GST/Invoice",
+            "id":"eticketgstinvoice",
+            "subData":[
+                {
+                    "id":"gstInvoiceEticketMail",
+                    "subCatName":"For GST invoice/ E-ticket on some other mail id",
+                    "data":"Dear Customer,\nSure. Request you to share the email address on which you need the same.\nI will share the asap."
+                }
+            ]
+        },
+        {
+            "catName":"Offers",
+            "id":"offers",
+            "subData":[
+                {
+                    "id":"emtproemtncf",
+                    "subCatName":"What is the difference between EMTPRO and EMTNCF?",
+                    "data": "Dear Customer,\nBoth the coupon codes give you the benefit of booking the tickets without any convenience fees."
+                },
+                {
+                    "id":"noemtproemtncf",
+                    "subCatName":"What is difference between EMTPRO and EMTNCF?",
+                    "data":"Dear Customer,\nThere is no difference."
+                },
+                {
+                    "id":"extOffers",
+                    "subCatName":"Customer says, I am aware of COUPONS as it is mentioned on your website, what extra EMT Offer?",
+                    "data":"Dear Customer,\nYour association with is not limited only until you book the tickets with us it is also the after sales services.\nUnlike other travel portals we are continuously working towards getting best deals, fares, and automated systems to make your entire experience worth with us.\nYour review will motivate us to do better. Thank you."
+                },
+                {
+                    "id":"emtcCancelCharge",
+                    "subCatName":"EMTC in case the customer raises the normal cancellation then he is been charged with the same. EMTC-under normal cancellation)",
+                    "data":"Dear Customer,\nIf you have applied EMTC it does not matter in which mode, you have placed the cancellation.\nOur website/app is built in a way that if EMTC is applied it calculates the legitimate charges and processes the refunds accordingly.\nKindly, share the booking id against which inappropriate cancellation charges have been levied so that we could investigate it."
+                },
+                {
+                    "id":"fmlyFareUnavailFreeSeat",
+                    "subCatName":"I have opted for family fare and unable to avail free seats as per rules. (Family Fare-free seats not avail) ",
+                    "data":"Dear Customer,\nWe are sorry about this. I have your details. Let me see what the issue is and get back to you as soon as possible.\nI will call you once I find out what exactly the issue is and would resolve the same putting my best foot forward"
+                },
+                {
+                    "id":"cupnCodeFlgBuk",
+                    "subCatName":"Give me coupon code for a flight booking",
+                    "data":"Dear Customer,\nAll coupon codes are available our app/website. The fares available on or app/website are already discounted rates. For add on benefits you may go through the coupon codes and make use of the one best suited as per your itinerary."
+                }
+            ]
+        }
+        
+    ]
+}

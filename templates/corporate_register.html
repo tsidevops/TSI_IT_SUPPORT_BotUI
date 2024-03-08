@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Corporate Register</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+  <section class="container">
+    {% if error %}
+
+      <div class="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          <strong>{{error}}</strong>
+      </div>fb
+    {% endif %}
+
+
+    <div class="login">
+      <h1>Register Corporate Clients from Here</h1>
+      <form method="post" action="/corporate_register">
+        <p><input type="text" name="name" value="" placeholder="Name"></p>
+        <p><input type="text" name="phone" placeholder="Mobile Number(ex.919720457880)"></p>
+        <p><input type="text" name="email" placeholder="Email Address"></p>
+
+          <p><B>USER TYPE :</B>
+            <select name="user_type">
+                <option value="options">Please Select Gender</option>
+                <option value="whatsapp">Whatsapp</option>
+                <option value="">Facebook</option>
+            </select>
+        </p>
+          <p><B>CLIENT TYPE :</B>
+            <select id="client_type" name="client_type">
+                <option value="options">Please Select One</option>
+                <option value="b2b">B2B Support</option>
+<!--                <option value="b2c">B2C Support</option>-->
+                <option value="cor">Corporate Support</option>
+<!--                <option value="pro">Promotional Support</option>-->
+          </select>
+        </p>
+<!--        <p class="remember_me">-->
+<!--          <label>Already have account?-->
+<!--            <a href="/login">Login</a>-->
+
+<!--          </label>-->
+<!--        </p>-->
+        <p class="submit"><input type="submit" name="commit" value="REGISTER USER"></p>
+      </form>
+    </div>
+
+<!--    <div class="login-help">-->
+<!--      <p>Forgot your password? <a href="index.html">Click here to reset it</a>.</p>-->
+<!--    </div>-->
+  </section>
+</body>
+</html>
