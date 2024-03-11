@@ -20,7 +20,7 @@
                         success : function(result) {
         //                    console.log(result)
                             if (result['data'] == undefined){
-                                alert(result['message'])
+//                                alert(result['message'])
                                 window.location.href = '/admin';
                             }
                             else{
@@ -242,7 +242,7 @@
                                 success : function(result) {
 
                                     if (result['data'] == undefined){
-                                        alert(result['message']);
+                                       // alert(result['message']);
                                         $('#btnUpdate').prop('disabled', false);
                                         window.location.href = '/index_usermanagement_admin';
                                     }
@@ -256,7 +256,7 @@
                                      }
                                      else{
                                        $('#btnUpdate').prop('disabled', false);
-                                       alert(result['message'])
+                                      // alert(result['message'])
                                      }
 
 

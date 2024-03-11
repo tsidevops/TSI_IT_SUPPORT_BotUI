@@ -164,14 +164,13 @@ $(document).ready(function() {
 //              measurementId: "G-L7HN5W2Z9E"
 //        });
          firebase.initializeApp({
-                 apiKey: "AIzaSyBBrpsMGakktiMWh62YVTbmDvfkbAKnets",
-                 authDomain: "tsitestchatsol.firebaseapp.com",
-                 databaseURL: "https://tsitestchatsol-default-rtdb.asia-southeast1.firebasedatabase.app",
-                 projectId: "tsitestchatsol",
-                 storageBucket: "tsitestchatsol.appspot.com",
-                 messagingSenderId: "722705539284",
-                 appId: "1:722705539284:web:b408b8aae7885ab5e0db41",
-                 measurementId: "G-Z935JF612Z"
+                 apiKey: "AIzaSyBBGKf1Q1Xf2YYWCkkIwqTpopDw-LpdA50",
+                  authDomain: "tsiitchatbot.firebaseapp.com",
+                  databaseURL: "https://tsiitchatbot-default-rtdb.firebaseio.com",
+                  projectId: "tsiitchatbot",
+                  storageBucket: "tsiitchatbot.appspot.com",
+                  messagingSenderId: "664292274624",
+                  appId: "1:664292274624:web:ef744ec1cfe7f165875825"
                });
         var supported_file_extension = ["jpg", "jpeg", "png", "pdf"]
         var db = firebase.firestore();

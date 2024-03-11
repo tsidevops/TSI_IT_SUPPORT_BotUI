@@ -14,7 +14,7 @@ $(document).ready(function() {
                 success : function(result) {
 //                    console.log(result)
                     if (result['data'] == undefined){
-                        alert(result['message'])
+//                        alert(result['message'])
                         $('#loading').remove();
                         window.location.href = '/admin';
 
@@ -31,7 +31,7 @@ $(document).ready(function() {
                         success : function(result) {
         //                    console.log(result)
                             if (result['data'] == undefined){
-                                alert(result['message'])
+//                                alert(result['message'])
                                 window.location.href = '/admin';
                             }
                             else{

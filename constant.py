@@ -92,8 +92,8 @@ mongo_password = 'P@ssw0rd'
 mongoURI = f'mongodb://{urllib.parse.quote(mongo_username)}:{urllib.parse.quote(mongo_password)}@172.16.0.151:27017/?authMechanism=DEFAULT&authSource=admin'
 client = MongoClient(mongoURI, ssl_cert_reqs=ssl.CERT_NONE)
 # client = {"emt_bot": {}}
-mongo_read = client['m_bot']
-mongo_write = client['m_bot']
+mongo_read = client['tsi_it_bot']
+mongo_write = client['tsi_it_bot']
 
 ############################### FIREBASE CREDENTIALS Live #########################
 
@@ -102,9 +102,9 @@ mongo_write = client['m_bot']
 # FIREBASE_URL = 'https://.firebaseio.com'
 
 
-CREDENTIAL_FILE_APP_FIREBASE = os.getcwd() + '/tsitestchatsol-firebase-adminsdk-9rw20-1ca1de6a98.json'
-FIREBASE_AUTH = '7g6NnfDNjHfww00FkEAlkOswLbucHlasv2ZXiNTD'
-FIREBASE_URL = 'https://tsitestchatsol-default-rtdb.asia-southeast1.firebasedatabase.app'
+CREDENTIAL_FILE_APP_FIREBASE = os.getcwd() + '/tsiitchatbot-firebase-adminsdk-2zjmm-26e2cdf159.json'  #config json file
+FIREBASE_AUTH = 'laYfxsKIoSUVXaRIk6wLuMimehSSYNzgVPlYEdGF'  #database secret
+FIREBASE_URL = 'https://tsiitchatbot-default-rtdb.firebaseio.com'  # databaseURL of firebase config
 # Database secret: 7g6NnfDNjHfww00FkEAlkOswLbucHlasv2ZXiNTD
 
 ############################### FIREBASE CREDENTIALS TESTING #########################
@@ -132,4 +132,4 @@ MATCH_STATUS={
 }
 
 # BASE_URL_SERVER = "https:///"
-BASE_URL_SERVER = "http://127.0.0.1:4001/"
+BASE_URL_SERVER = "http://127.0.0.1:4002/"

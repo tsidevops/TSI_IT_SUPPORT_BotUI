@@ -10,7 +10,7 @@
                         success : function(result) {
         //                    console.log(result)
                             if (result['data'] == undefined){
-                                alert(result['message'])
+                               // alert(result['message'])
                                 window.location.href = '/admin';
                             }
                             else{
@@ -96,7 +96,7 @@
          }
 
         function get_closed_query_users(result,users){
-                alert('inside get_closed_query_user')
+               // alert('inside get_closed_query_user')
 
             $("#closed_chat_totalcount").text(0);
 
@@ -135,20 +135,20 @@
                         "support_id":user_support_id
                         },
                         beforeSend: function(xhr){
-                        alert('inside user_chat_data xhr')
+                       // alert('inside user_chat_data xhr')
                             xhr.setRequestHeader('Authorization', getCookie('token'));
                             xhr.setRequestHeader('request_type', 'js');
                             },
                         success : function(result) {
-                         alert('inside user_chat_data reult')
+                        // alert('inside user_chat_data reult')
         //                    console.log(result)
                             if (result['data'] == undefined){
-                                alert(result['message'])
+                               // alert(result['message'])
                                 window.location.href = '/admin';
                             }
                             else
                             {
-                             alert('inside user_chat_data not undefined ')
+                           //  alert('inside user_chat_data not undefined ')
                                 var nav_html = '<nav class="tnav">'+
                                                   '<div style="margin-left:20%; font-size: 16px;" class="nav_bar_horizontal">'+
                                                     '<li class="nav_element">' + result['data']['support_id'] + '</li>'+
@@ -225,15 +225,14 @@
         // Initialize Firebase
         var firebaseApp =
                 firebase.initializeApp({
-                                  apiKey: "AIzaSyBBrpsMGakktiMWh62YVTbmDvfkbAKnets",
-                                  authDomain: "tsitestchatsol.firebaseapp.com",
-                                  databaseURL: "https://tsitestchatsol-default-rtdb.asia-southeast1.firebasedatabase.app",
-                                  projectId: "tsitestchatsol",
-                                  storageBucket: "tsitestchatsol.appspot.com",
-                                  messagingSenderId: "722705539284",
-                                  appId: "1:722705539284:web:b408b8aae7885ab5e0db41",
-                                  measurementId: "G-Z935JF612Z"
-                                  });
+                 apiKey: "AIzaSyBBGKf1Q1Xf2YYWCkkIwqTpopDw-LpdA50",
+                  authDomain: "tsiitchatbot.firebaseapp.com",
+                  databaseURL: "https://tsiitchatbot-default-rtdb.firebaseio.com",
+                  projectId: "tsiitchatbot",
+                  storageBucket: "tsiitchatbot.appspot.com",
+                  messagingSenderId: "664292274624",
+                  appId: "1:664292274624:web:ef744ec1cfe7f165875825"
+               });
                 if (firebaseApp) {
                    // alert('Firebase initialization successful')
                     //console.log("Firebase initialization successful!");
@@ -252,7 +251,7 @@
               appId: "1:395962900929:web:352ab8e4c6805f87ec8f40",
               measurementId: "G-L7HN5W2Z9E"
         });*/
-        alert('firebase.initializeApp done')
+       // alert('firebase.initializeApp done')
         var supported_file_extension = ["jpg", "jpeg", "png", "pdf"]
         var db = firebase.firestore();
         var lastVisibleUnAssigDoc={};
@@ -845,7 +844,7 @@
         }
 
         function render_active_chat_content(support_match_id, name, result, from){
-        alert('render_active_chat_content')
+       // alert('render_active_chat_content')
             var complete_endpoint = result['data']['chat_endpoint'] + support_match_id;
             $("inbox-message-"+support_match_id).empty();
             if (document.getElementById("inbox-message-"+support_match_id) == null){
@@ -966,7 +965,7 @@
         }
 
         function manage_active_query(result){
-            alert('inside manage_active_query')
+           // alert('inside manage_active_query')
             $('#active_query_msg').empty();
             db.collection(result['data']['active_query']).orderBy("create_time", "desc")
             .onSnapshot(function(querySnapshot) {
@@ -1620,8 +1619,8 @@
                 success : function(result) {
 //                    console.log(result)
                     if (result['data'] == undefined){
-                         alert(result['message'])
-                        //window.location.href = '/login';
+                        // alert(result['message'])
+                        window.location.href = '/login';
                     }
                     else{
 
