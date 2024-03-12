@@ -4,77 +4,112 @@ from pymongo import MongoClient
 import os
 
 
+MATCH_STATUS={
+    0:'unassign',
+    1:'assign/active',
+    2:'end search(Ended by customer in unassign stage)',
+    3:'end/close(Ended by support exe)',
+    4:'end/close(Ended by customer)',
+    5:'auto close'
+}
+
+ACCOUNT_LINK = {
+    'btats': 1,
+    'nbtas': 2,
+    "survsp": 3,
+    "atmpr": 4,
+    "btcsh": 5,
+    "nbtcs": 6,
+    "ejspr": 7
+}
+
 START_IDS = {
-    "b2b": "SUPPORT_B2B_",
-    "b2c": "SUPPORT_B2C_",
-    "cor": "SUPPORT_COR_",
-    "pro": "SUPPORT_PRO_",
-    "ehs": "SUPPORT_EHS_",
-    "etas": "SUPPORT_ETAS_"
-}
-
-UN_ASSIGN_B2B = "/unassign_query/b2b_support_agent/query"
-UN_ASSIGN_B2C = "/unassign_query/b2c_support_agent/query"
-UN_ASSIGN_CORPORATE = "/unassign_query/corporate_support_agent/query"
-UN_ASSIGN_PROMOTIONAL = "/unassign_query/promotional_support_agent/query"
-UN_ASSIGN_EHS = '/unassign_query/existing_hotel_support/query'
-UN_ASSIGN_ETAS = '/unassign_query/existing_travel_agent_support/query'
-
-B2B_ACTIVE = "/b2b_support_agent/{}/activequery"
-B2B_RESOLVE = "/b2b_support_agent/{}/resolvedquery"
-
-B2C_ACTIVE = "/b2c_support_agent/{}/activequery"
-B2C_RESOLVE = "/b2c_support_agent/{}/resolvedquery"
-
-CORPORATE_ACTIVE = "/corporate_support_agent/{}/activequery"
-CORPORATE_RESOLVE = "/corporate_support_agent/{}/resolvedquery"
-
-PROMOTION_ACTIVE = "/promotional_support_agent/{}/activequery"
-PROMOTION_RESOLVE = "/promotional_support_agent/{}/resolvedquery"
-
-EHS_ACTIVE = '/existing_hotel_support/{}/activequery'
-EHS_RESOLVE = '/existing_hotel_support/{}/resolvedquery'
-
-ETAS_ACTIVE = '/existing_travel_agent_support/{}/activequery'
-ETAS_RESOLVE = 'existing_travel_agent_support/{}/resolvedquery'
-
-CHATS = "/chatdata/chats/"
-
-UN_ASSIGN_DICT = {
-    'b2b': UN_ASSIGN_B2B,
-    'b2c': UN_ASSIGN_B2C,
-    "cor": UN_ASSIGN_CORPORATE,
-    "pro": UN_ASSIGN_PROMOTIONAL,
-    'ehs': UN_ASSIGN_EHS,
-    'etas': UN_ASSIGN_ETAS
-}
-
-ACTIVE_QUERY_DICT = {
-    "b2b": B2B_ACTIVE,
-    "b2c": B2C_ACTIVE,
-    "cor": CORPORATE_ACTIVE,
-    "pro": PROMOTION_ACTIVE,
-    "ehs": EHS_ACTIVE,
-    "etas": ETAS_ACTIVE
-}
-
-RESOLVE_QUERY_DICT = {
-    "b2b": B2B_RESOLVE,
-    "b2c": B2C_RESOLVE,
-    "cor": CORPORATE_RESOLVE,
-    "pro": PROMOTION_RESOLVE,
-    "ehs": EHS_RESOLVE,
-    "etas": ETAS_RESOLVE
+    "btats": "SUPPORT_BTATS_",
+    "nbtas": "SUPPORT_NBTAS_",
+    "survsp": "SUPPORT_SURVSP_",
+    "atmpr": "SUPPORT_ATMPR_",
+    "btcsh": "SUPPORT_BTCSH_",
+    "nbtcs": "SUPPORT_NBTCS_",
+    "ejspr": "SUPPORT_EJSPR_"
 }
 
 DISPLAY_DEPARTMENT_NAME = {
-    'b2b': "B2B Support",
-    'b2c': "B2C Support",
-    "cor": "Corporate Support",
-    "pro": "Promotional Support",
-    "ehs": "Existing Hotel Support",
-    "etas": "Existing Travel Agent Support"
+    'btats': "BTI ATM Support",
+    'nbtas': "Non BTI ATM Support",
+    "survsp": "Surveillance Support",
+    "atmpr": "Atm Projects",
+    "btcsh": "BTI Cash Support",
+    "nbtcs": "Non BTI Cash Support",
+    "ejspr": "EJ Support"
 }
+
+
+UN_ASSIGN_BTATS = "/unassign_query/btats_support_agent/query"
+UN_ASSIGN_NBTAS = "/unassign_query/nbtas_support_agent/query"
+UN_ASSIGN_SURVSP = "/unassign_query/survsp_support_agent/query"
+UN_ASSIGN_ATMPR = "/unassign_query/atmpr_support_agent/query"
+UN_ASSIGN_BTCSH = '/unassign_query/btcsh_support_agent/query'
+UN_ASSIGN_NBTCS = '/unassign_query/nbtcs_support_agent/query'
+UN_ASSIGN_EJSPR = '/unassign_query/ejspr_support_agent/query'
+
+UN_ASSIGN_DICT = {
+    'btats': UN_ASSIGN_BTATS,
+    'nbtas': UN_ASSIGN_NBTAS,
+    "survsp": UN_ASSIGN_SURVSP,
+    "atmpr": UN_ASSIGN_ATMPR,
+    'btcsh': UN_ASSIGN_BTCSH,
+    'nbtcs': UN_ASSIGN_NBTCS,
+    "ejspr": UN_ASSIGN_EJSPR
+}
+
+BTATS_ACTIVE = "/btats_support_agent/{}/activequery"
+NBTAS_ACTIVE = "/nbtas_support_agent/{}/activequery"
+SURVSP_ACTIVE = "/survsp_support_agent/{}/activequery"
+ATMPR_ACTIVE = "/atmpr_support_agent/{}/activequery"
+BTCSH_ACTIVE = '/btcsh_support_agent/{}/activequery'
+NBTCS_ACTIVE = '/nbtcs_support_agent/{}/activequery'
+EJSPR_ACTIVE = '/ejspr_support_agent/{}/activequery'
+
+
+ACTIVE_QUERY_DICT = {
+    "btats": BTATS_ACTIVE,
+    "nbtas": NBTAS_ACTIVE,
+    "survsp": SURVSP_ACTIVE,
+    "atmpr": ATMPR_ACTIVE,
+    "btcsh": BTCSH_ACTIVE,
+    "nbtcs": NBTCS_ACTIVE,
+    "ejspr": EJSPR_ACTIVE
+}
+
+
+
+# btats_support_agent
+#nbtas_support_agent
+#survsp_support_agent
+#atmpr_support_agent
+#btcsh_support_agent
+#nbtcs_support_agent
+#ejspr_support_agent
+
+BTATS_RESOLVE = "/btats_support_agent/{}/resolvedquery"
+NBTAS_RESOLVE = "/nbtas_support_agent/{}/resolvedquery"
+SURVSP_RESOLVE = "/survsp_support_agent/{}/resolvedquery"
+ATMPR_RESOLVE = "/atmpr_support_agent/{}/resolvedquery"
+BTCSH_RESOLVE = "/btcsh_support_agent/{}/resolvedquery"
+NBTCS_RESOLVE = "/nbtcs_support_agent/{}/resolvedquery"
+EJSPR_RESOLVE = "/ejspr_support_agent/{}/resolvedquery"
+
+RESOLVE_QUERY_DICT = {
+    "btats": BTATS_RESOLVE,
+    "nbtas": NBTAS_RESOLVE,
+    "survsp": SURVSP_RESOLVE,
+    "atmpr": ATMPR_RESOLVE,
+    "btcsh": BTCSH_RESOLVE,
+    "nbtcs": NBTCS_RESOLVE,
+    "ejspr": EJSPR_RESOLVE
+}
+
+CHATS = "/chatdata/chats/"
 
 
 # production url live
@@ -113,23 +148,9 @@ FIREBASE_URL = 'https://tsiitchatbot-default-rtdb.firebaseio.com'  # databaseURL
 # FIREBASE_AUTH = 'b2ycWmQidDm6g7Q3IA4r7Lt25S0XRvFpP53QZfFm'
 # FIREBASE_URL = 'https://emt-bot-test.firebaseio.com'
 
-ACCOUNT_LINK = {
-    'pro': 1,
-    'cor': 2,
-    "b2b": 3,
-    "b2c": 4,
-    "ehs": 5,
-    "etas": 6
-}
 
-MATCH_STATUS={
-    0:'unassign',
-    1:'assign/active',
-    2:'end search(Ended by customer in unassign stage)',
-    3:'end/close(Ended by support exe)',
-    4:'end/close(Ended by customer)',
-    5:'auto close'
-}
+
+
 
 # BASE_URL_SERVER = "https:///"
 BASE_URL_SERVER = "http://127.0.0.1:4002/"
