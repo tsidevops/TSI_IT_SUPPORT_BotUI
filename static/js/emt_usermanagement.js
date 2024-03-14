@@ -250,7 +250,8 @@
                                      if(result['success']&&result['success']==true){
                                          $('#loading').remove();
                                             $('#editModal').modal('hide');
-                                            alert('Action is successful');
+                                             Swal.fire('Action is successful');
+                                            //alert('Action is successful');
                                              clearEditData();
                                              BindGridData();
                                      }

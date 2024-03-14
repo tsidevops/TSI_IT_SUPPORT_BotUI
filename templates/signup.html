@@ -38,21 +38,29 @@
         </p>
           <p><B>DEPARTMENT :</B>
             <select id="department" name="department" onchange="onDepartmentChange()">
-                <option value="options">Please Select One</option>
-                <option value="b2b">B2B Support</option>
-                <option value="b2c">B2C Support</option>
-                <option value="cor">Corporate Support</option>
-                <option value="pro">Promotional Support</option>
-                <option value="ehs">Existing Hotel Support</option>
-                <option value="etas">Existing Travel Agent Support</option>
+<!--                <option value="options">Please Select One</option>-->
+<!--                <option value="b2b">B2B Support</option>-->
+<!--                <option value="b2c">B2C Support</option>-->
+<!--                <option value="cor">Corporate Support</option>-->
+<!--                <option value="pro">Promotional Support</option>-->
+<!--                <option value="ehs">Existing Hotel Support</option>-->
+<!--                <option value="etas">Existing Travel Agent Support</option>-->
+                                <option value="options">Please Select One</option>
+                 <option value="atop"  title ="ATM Operations Support">ATM Operations</option>
+                <option value="esrv" title ="E Surveillance Support">E Surveillance</option>
+                <option value="atpr" title ="Atm Projects Support">Atm Projects</option>
+                <option value="cash" title ="Cash Management Support">Cash Management</option>
+                 <option value="ejmg" title ="EJ Management Support">EJ Management</option>
           </select>
         </p>
         <p id="sub_department"  style="display: none;"><B>SUB DEPARTMENT :</B>
             <select name="sub_department">
                 <option value="options">Please Select One</option>
-                <option value="long">Long Trip Support</option>
-                <option value="short">Short Trip Support</option>
-                <option value="domestic">Domestic Support</option>
+                 <option value="bti">BTI Support</option>
+                <option value="nonbti">Non BTI Support</option>
+<!--                <option value="long">Long Trip Support</option>-->
+<!--                <option value="short">Short Trip Support</option>-->
+<!--                <option value="domestic">Domestic Support</option>-->
 
           </select>
         </p>
@@ -72,7 +80,8 @@
   </section>
 <script>
     function onDepartmentChange(){
-        if (document.getElementById("department").value == "pro"){
+<!--        if (document.getElementById("department").value == "pro"){-->
+         if (document.getElementById("department").value == "atop" || document.getElementById("department").value == "cash" ){
             document.getElementById("sub_department").style.display = 'block'
         }
         else{

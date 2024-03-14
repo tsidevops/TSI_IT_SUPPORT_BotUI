@@ -14,99 +14,102 @@ MATCH_STATUS={
 }
 
 ACCOUNT_LINK = {
-    'btats': 1,
-    'nbtas': 2,
-    "survsp": 3,
-    "atmpr": 4,
-    "btcsh": 5,
-    "nbtcs": 6,
-    "ejspr": 7
+    'atop': 1,
+    'esrv': 2,
+    "atpr": 3,
+    "cash": 4,
+    "ejmg": 5
+
 }
+
+# START_IDS = {
+#     "btats": "SUPPORT_BTATS_",
+#     "nbtas": "SUPPORT_NBTAS_",
+#     "survsp": "SUPPORT_SURVSP_",
+#     "atmpr": "SUPPORT_ATMPR_",
+#     "btcsh": "SUPPORT_BTCSH_",
+#     "nbtcs": "SUPPORT_NBTCS_",
+#     "ejspr": "SUPPORT_EJSPR_"
+# }
 
 START_IDS = {
-    "btats": "SUPPORT_BTATS_",
-    "nbtas": "SUPPORT_NBTAS_",
-    "survsp": "SUPPORT_SURVSP_",
-    "atmpr": "SUPPORT_ATMPR_",
-    "btcsh": "SUPPORT_BTCSH_",
-    "nbtcs": "SUPPORT_NBTCS_",
-    "ejspr": "SUPPORT_EJSPR_"
+    "atop": "SUPPORT_ATOP_",
+    "esrv": "SUPPORT_ESRV_",
+    "atpr": "SUPPORT_ATPR_",
+    "cash": "SUPPORT_CASH_",
+    "ejmg": "SUPPORT_EJMG_"
+
 }
+
+# DISPLAY_DEPARTMENT_NAME = {
+#     'btats': "BTI ATM Support",
+#     'nbtas': "Non BTI ATM Support",
+#     "survsp": "Surveillance Support",
+#     "atmpr": "Atm Projects",
+#     "btcsh": "BTI Cash Support",
+#     "nbtcs": "Non BTI Cash Support",
+#     "ejspr": "EJ Support"
+# }
 
 DISPLAY_DEPARTMENT_NAME = {
-    'btats': "BTI ATM Support",
-    'nbtas': "Non BTI ATM Support",
-    "survsp": "Surveillance Support",
-    "atmpr": "Atm Projects",
-    "btcsh": "BTI Cash Support",
-    "nbtcs": "Non BTI Cash Support",
-    "ejspr": "EJ Support"
+    'atop': "ATM Operations",
+    'esrv': "E Surveillance",
+    "atpr": "Atm Projects",
+    "cash": "Cash Management",
+    "ejmg": "EJ Management"
 }
 
 
-UN_ASSIGN_BTATS = "/unassign_query/btats_support_agent/query"
-UN_ASSIGN_NBTAS = "/unassign_query/nbtas_support_agent/query"
-UN_ASSIGN_SURVSP = "/unassign_query/survsp_support_agent/query"
-UN_ASSIGN_ATMPR = "/unassign_query/atmpr_support_agent/query"
-UN_ASSIGN_BTCSH = '/unassign_query/btcsh_support_agent/query'
-UN_ASSIGN_NBTCS = '/unassign_query/nbtcs_support_agent/query'
-UN_ASSIGN_EJSPR = '/unassign_query/ejspr_support_agent/query'
+UN_ASSIGN_ATOP = "/unassign_query/atop_support_agent/query"
+UN_ASSIGN_ESRV = "/unassign_query/esrv_support_agent/query"
+UN_ASSIGN_ATPR = "/unassign_query/atpr_support_agent/query"
+UN_ASSIGN_CASH = "/unassign_query/cash_support_agent/query"
+UN_ASSIGN_EJMG = '/unassign_query/ejmg_support_agent/query'
 
 UN_ASSIGN_DICT = {
-    'btats': UN_ASSIGN_BTATS,
-    'nbtas': UN_ASSIGN_NBTAS,
-    "survsp": UN_ASSIGN_SURVSP,
-    "atmpr": UN_ASSIGN_ATMPR,
-    'btcsh': UN_ASSIGN_BTCSH,
-    'nbtcs': UN_ASSIGN_NBTCS,
-    "ejspr": UN_ASSIGN_EJSPR
+    'atop': UN_ASSIGN_ATOP,
+    'esrv': UN_ASSIGN_ESRV,
+    "atpr": UN_ASSIGN_ATPR,
+    "cash": UN_ASSIGN_CASH,
+    'ejmg': UN_ASSIGN_EJMG
+
 }
 
-BTATS_ACTIVE = "/btats_support_agent/{}/activequery"
-NBTAS_ACTIVE = "/nbtas_support_agent/{}/activequery"
-SURVSP_ACTIVE = "/survsp_support_agent/{}/activequery"
-ATMPR_ACTIVE = "/atmpr_support_agent/{}/activequery"
-BTCSH_ACTIVE = '/btcsh_support_agent/{}/activequery'
-NBTCS_ACTIVE = '/nbtcs_support_agent/{}/activequery'
-EJSPR_ACTIVE = '/ejspr_support_agent/{}/activequery'
+
+ATOP_ACTIVE = "/atop_support_agent/{}/activequery"
+ESRV_ACTIVE = "/esrv_support_agent/{}/activequery"
+ATPR_ACTIVE = "/atpr_support_agent/{}/activequery"
+CASH_ACTIVE = "/cash_support_agent/{}/activequery"
+EJMG_ACTIVE = '/ejmg_support_agent/{}/activequery'
 
 
 ACTIVE_QUERY_DICT = {
-    "btats": BTATS_ACTIVE,
-    "nbtas": NBTAS_ACTIVE,
-    "survsp": SURVSP_ACTIVE,
-    "atmpr": ATMPR_ACTIVE,
-    "btcsh": BTCSH_ACTIVE,
-    "nbtcs": NBTCS_ACTIVE,
-    "ejspr": EJSPR_ACTIVE
+    "atop": ATOP_ACTIVE,
+    "esrv": ESRV_ACTIVE,
+    "atpr": ATPR_ACTIVE,
+    "cash": CASH_ACTIVE,
+    "ejmg": EJMG_ACTIVE
+
 }
 
+#  atop esrv atpr  cash  ejmg
+# ATOP ESRV ATPR CASH EJMG
+# atop_support_agent  esrv_support_agent  atpr_support_agent  cash_support_agent  ejmg_support_agent
 
 
-# btats_support_agent
-#nbtas_support_agent
-#survsp_support_agent
-#atmpr_support_agent
-#btcsh_support_agent
-#nbtcs_support_agent
-#ejspr_support_agent
+ATOP_RESOLVE = "/atop_support_agent/{}/resolvedquery"
+ESRV_RESOLVE = "/esrv_support_agent/{}/resolvedquery"
+ATPR_RESOLVE = "/atpr_support_agent/{}/resolvedquery"
+CASH_RESOLVE = "/cash_support_agent/{}/resolvedquery"
+EJMG_RESOLVE = "/ejmg_support_agent/{}/resolvedquery"
 
-BTATS_RESOLVE = "/btats_support_agent/{}/resolvedquery"
-NBTAS_RESOLVE = "/nbtas_support_agent/{}/resolvedquery"
-SURVSP_RESOLVE = "/survsp_support_agent/{}/resolvedquery"
-ATMPR_RESOLVE = "/atmpr_support_agent/{}/resolvedquery"
-BTCSH_RESOLVE = "/btcsh_support_agent/{}/resolvedquery"
-NBTCS_RESOLVE = "/nbtcs_support_agent/{}/resolvedquery"
-EJSPR_RESOLVE = "/ejspr_support_agent/{}/resolvedquery"
 
 RESOLVE_QUERY_DICT = {
-    "btats": BTATS_RESOLVE,
-    "nbtas": NBTAS_RESOLVE,
-    "survsp": SURVSP_RESOLVE,
-    "atmpr": ATMPR_RESOLVE,
-    "btcsh": BTCSH_RESOLVE,
-    "nbtcs": NBTCS_RESOLVE,
-    "ejspr": EJSPR_RESOLVE
+    "atop": ATOP_RESOLVE,
+    "esrv": ESRV_RESOLVE,
+    "atpr": ATPR_RESOLVE,
+    "cash": CASH_RESOLVE,
+    "ejmg": EJMG_RESOLVE
 }
 
 CHATS = "/chatdata/chats/"
