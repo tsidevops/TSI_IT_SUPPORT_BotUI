@@ -153,16 +153,7 @@ $(document).ready(function() {
         var is_page_loaded = false;
         var pageSize=200;
         // Initialize Firebase
-//        firebase.initializeApp({
-//              apiKey: "AIzaSyA_p90pHTKGwqNvDHF91Rm2rqeLgErfeog",
-//              authDomain: "emt-bot.firebaseapp.com",
-//              databaseURL: "https://emt-bot.firebaseio.com",
-//              projectId: "emt-bot",
-//              storageBucket: "emt-bot.appspot.com",
-//              messagingSenderId: "395962900929",
-//              appId: "1:395962900929:web:352ab8e4c6805f87ec8f40",
-//              measurementId: "G-L7HN5W2Z9E"
-//        });
+
          firebase.initializeApp({
                  apiKey: "AIzaSyBBGKf1Q1Xf2YYWCkkIwqTpopDw-LpdA50",
                   authDomain: "tsiitchatbot.firebaseapp.com",
