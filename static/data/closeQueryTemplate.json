@@ -1,278 +1,88 @@
 {
     "templates":[
         {
-            "catName": "Refund",
-            "id":"refund",
+            "catName": "ATM Operations",
+            "id":"atop",
             "subData":[
                 {
-                    "id": "cancelRefund",
-                    "subCatName":"Cancellation Refund"
+                    "id": "atopBti",
+                    "subCatName":"BTI Support"
                 },
                 {
-                    "id": "pndFrmAirLn",
-                    "subCatName":"Pending from Airline"
-                },
-                {
-                    "id": "autoRvsl",
-                    "subCatName":"Auto Reversal"
-                },
-                {
-                    "id": "pndFrmAccTm",
-                    "subCatName":"Pending from accounts team"
-                },
-                {
-                    "id": "trnRefund",
-                    "subCatName":"Train Refund"
-                },
-                {
-                    "id": "busRefund",
-                    "subCatName":"Bus Refund"
-                },
-                {
-                    "id": "cabRefund",
-                    "subCatName":"Cab Refund"
-                },
-                {
-                    "id": "insrnRefund",
-                    "subCatName":"Insurance Refund"
-                },
-                {
-                    "id": "seatRefund",
-                    "subCatName":"Seat Refund"
-                },
-                {
-                    "id": "lostRefund",
-                    "subCatName":"Lost Refund"
-                },
-                {
-                    "id": "rejctRefund",
-                    "subCatName":"Rejected Refund"
-                },
-                {
-                    "id": "dlyInRefund",
-                    "subCatName":"Delay In Refund"
-                },
-                {
-                    "id": "wltRefund",
-                    "subCatName":"Wallet Refund"
-                },
-                {
-                    "id": "waiveOff",
-                    "subCatName":"Waive-off"
+                     "id": "atopNonBti",
+                    "subCatName":"Non BTI Support"
                 }
             ]
         },
         {
-            "catName": "Cancellation",
-            "id":"cancellation",
+            "catName": "E Surveillance",
+            "id":"esrv",
             "subData":[
                 {
-                    "id":"flgtCancel",
-                    "subCatName":"Flight Cancellation"
+                    "id":"esrvQuery",
+                    "subCatName":"General Query"
                 },
                 {
-                    "id":"busCancel",
-                    "subCatName":"Bus Cancellation"
+                    "id":"esrvReport",
+                    "subCatName":"Report Issue"
                 },
                 {
-                    "id":"cabCancel",
-                    "subCatName":"Cab Cancellation"
-                },
-                {
-                    "id":"trnCancel",
-                    "subCatName":"Train Cancellation"
-                },
-                {
-                    "id":"bgagCancel",
-                    "subCatName":"Baggage Cancellation"
-                },
-                {
-                    "id":"mealCancel",
-                    "subCatName":"Meal Cancellation"
-                },
-                {
-                    "id":"seatCancel",
-                    "subCatName":"Seat Cancellation"
-                },
-                {
-                    "id":"insCancel",
-                    "subCatName":"Insurance Cancellation"
-                }
-            ] 
-        },
-        {
-            "catName":"E-Ticket",
-            "id":"eTicket",
-            "subData":[
-                {
-                    "id":"flight",
-                    "subCatName":"Flight"
-                },
-                {
-                    "id":"train",
-                    "subCatName":"Train"
-                },
-                {
-                    "id":"gstInvoice",
-                    "subCatName":"GST Invoice"
-                },
-                {
-                    "id":"bus",
-                    "subCatName":"Bus"
+                    "id":"esrvMisc",
+                    "subCatName":"Misc"
                 }
             ]
         },
         {
-            "catName":"Re-Issuance",
-            "id":"reIssuance",
+            "catName":"Atm Projects",
+            "id":"atpr",
             "subData":[
-                {
-                    "id":"reIssuancePnlty",
-                    "subCatName":"Re-issuance Penalty"
+                  {
+                    "id":"atprQuery",
+                    "subCatName":"General Query"
                 },
                 {
-                    "id":"reIssuanceEnqry",
-                    "subCatName":"Re-issue enquiry"
+                    "id":"atprReport",
+                    "subCatName":"Report Issue"
                 },
                 {
-                    "id":"unbleReissue",
-                    "subCatName":"Unable to re-issue"
-                },
-                {
-                    "id":"reIssuanceDone",
-                    "subCatName":"Re-issuance Done"
+                    "id":"atprMisc",
+                    "subCatName":"Misc"
                 }
             ]
         },
         {
-            "catName":"Add-ons Update",
-            "id":"addOnUpdate",
+            "catName":"Cash Management",
+            "id":"cash",
             "subData":[
                 {
-                    "id":"mealUpdt",
-                    "subCatName":"Meal Update"
+                    "id": "cashBti",
+                    "subCatName":"BTI Support"
                 },
                 {
-                    "id":"seatUpdt",
-                    "subCatName":"Seat Update"
-                },
-                {
-                    "id":"bgagUpdt",
-                    "subCatName":"Baggage Update"
-                },
-                {
-                    "id":"wheelChairUpdt",
-                    "subCatName":"Wheel chair Update"
-                },
-                {
-                    "id":"boardPass",
-                    "subCatName":"Boarding Pass"
-                },
-                {
-                    "id":"insUpdt",
-                    "subCatName":"Insurance Update"
-                },
-                {
-                    "id":"freqFlyNo",
-                    "subCatName":"Frequent Flyer No."
-                },
-                {
-                    "id":"updtMobEml",
-                    "subCatName":"Updating Mobile Number/E-mail Id"
+                     "id": "cashNonBti",
+                    "subCatName":"Non BTI Support"
                 }
             ]
         },
         {
-            "catName":"Query",
-            "id":"query",
+            "catName":"EJ Management",
+            "id":"ejmg",
             "subData":[
-                {
-                    "id":"qryFrwd",
-                    "subCatName":"Query Forwarded"
+                 {
+                    "id":"ejmgQuery",
+                    "subCatName":"General Query"
                 },
                 {
-                    "id":"webChkin",
-                    "subCatName":"Web checkin"
+                    "id":"ejmgReport",
+                    "subCatName":"Report Issue"
                 },
                 {
-                    "id":"offers",
-                    "subCatName":"Offers"
-                },
-                {
-                    "id":"qryBusFrwd",
-                    "subCatName":"Query Bus forwaded"
-                }
-            ]
-        },
-        {
-            "catName":"Correction",
-            "id":"correction",
-            "subData":[
-                {
-                    "id":"dateErr",
-                    "subCatName":"Date Error"
-                },
-                {
-                    "id":"spellErr",
-                    "subCatName":"Spelling Error"
-                },
-                {
-                    "id":"titleErr",
-                    "subCatName":"Title Error"
-                }
-            ]
-        },
-        {
-            "catName":"Covid -19",
-            "id":"covid19",
-            "subData":[
-                {
-                    "id":"reIssuance",
-                    "subCatName":"Re-Issuance"
-                },
-                {
-                    "id":"cancelDone",
-                    "subCatName":"Cancellation Done"
-                },
-                {
-                    "id":"refundStatus",
-                    "subCatName":"Refund Status"
-                },
-                {
-                    "id":"cancelCharges",
-                    "subCatName":"Cancellation Charges"
-                },
-                {
-                    "id":"within72hrsReissue",
-                    "subCatName":"Within 72hrs-Re-Issuance"
-                },
-                {
-                    "id":"fullRefund",
-                    "subCatName":"Full Refund "
-                }
-            ]
-        },
-        {
-            "catName":"Tech Team Related",
-            "id":"techTeamRelated",
-            "subData":[
-                {
-                    "id":"couponCode",
-                    "subCatName":"Coupon Code"
-                },
-                {
-                    "id":"refund",
-                    "subCatName":"Refund"
-                },
-                {
-                    "id":"dualBooking",
-                    "subCatName":"Dual Booking"
-                },
-                {
-                    "id":"baggage",
-                    "subCatName":"Baggage"
+                    "id":"ejmgMisc",
+                    "subCatName":"Misc"
                 }
             ]
         }
     ]
 }
+
+

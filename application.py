@@ -51,13 +51,18 @@ def update_status(request, user):
     support_type = ACCOUNT_LINK[user['department']]
     exe_data = mongo_read['ExeOnlineChatCount'].find_one({"_id": support_match_id})
     if exe_data:
-        mongo_write['ExeOnlineChatCount'].update_one({'_id': support_match_id},
-                                                     {'$set': {
-                                                         "isOnline": is_online,
-                                                         "chatCount": chat_count,
-                                                         "updated_at": int(time.time())*1000,
-                                                         "name": name
-                                                     }}, upsert=True)
+        try:
+            mongo_write['ExeOnlineChatCount'].update_one({'_id': support_match_id},
+                                                         {'$set': {
+                                                             "isOnline": is_online,
+                                                             "chatCount": chat_count,
+                                                             "updated_at": int(time.time()) * 1000,
+                                                             "name": name
+                                                         }}, upsert=True)
+        except Exception as e:
+            print( f"Error updating document: {e}")
+
+
     else:
         mongo_write['ExeOnlineChatCount'].insert_one({
             "_id": support_match_id,
@@ -826,7 +831,7 @@ def update_user_detail_admin(request,user):
                 return jsonify({"message": "Password is required", "data": {}})
             password = crypto_encrypted(data.get("password"))
             sub_department=''
-            support_id = START_IDS['b2c'] + uuid4().hex
+            support_id = START_IDS['atop'] + uuid4().hex
 
 
 
