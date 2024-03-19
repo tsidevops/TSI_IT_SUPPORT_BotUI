@@ -158,6 +158,7 @@
              $('#editPopupPhone').val(model.phone);
              $('#editPopupGender').val(model.gender);
              $('#editPopupDepartment').val(model.department);
+            //  $('#editPopupDepartment').val(model.department);
              $('#editPopupActive').val(model.active);
              $('#editPopupEmail').prop("readonly", true);
              $('#pPassword').hide();

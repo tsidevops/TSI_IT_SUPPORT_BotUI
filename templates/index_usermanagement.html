@@ -111,16 +111,32 @@
             </select>
         </p>
            <p><B>Department :</B>
-            <select id="editPopupDepartment" name="department" required>
+            <select id="editPopupDepartment" name="department"  onchange="onIndexUserManageDepartmentChange()" required>
                 <option value="">Please Select One</option>
-                <option value="btats"  title ="BTI ATM Support">BTATS Support</option>
-                <option value="nbtas" title ="Non BTI ATM Support">NBTAS Support</option>
-                <option value="survsp" title ="Surveillance Support">SURVSP Support</option>
-                <option value="atmpr" title ="Atm Projects">ATMPR Support</option>
-                 <option value="btcsh" title ="BTI Cash Support">BTCSH Support</option>
-                <option value="nbtcs" title="Non BTI Cash Support">NBTCS Support</option>
-                <option value="ejspr" title="EJ Support">EJSPR Support</option>
+                  <option value="atop"  title ="ATM Operations Support">ATM Operations</option>
+                <option value="esrv" title ="E Surveillance Support">E Surveillance</option>
+                <option value="atpr" title ="Atm Projects Support">Atm Projects</option>
+                <option value="cash" title ="Cash Management Support">Cash Management</option>
+                 <option value="ejmg" title ="EJ Management Support">EJ Management</option>
+<!--                <option value="btats"  title ="BTI ATM Support">BTATS Support</option>-->
+<!--                <option value="nbtas" title ="Non BTI ATM Support">NBTAS Support</option>-->
+<!--                <option value="survsp" title ="Surveillance Support">SURVSP Support</option>-->
+<!--                <option value="atmpr" title ="Atm Projects">ATMPR Support</option>-->
+<!--                 <option value="btcsh" title ="BTI Cash Support">BTCSH Support</option>-->
+<!--                <option value="nbtcs" title="Non BTI Cash Support">NBTCS Support</option>-->
+<!--                <option value="ejspr" title="EJ Support">EJSPR Support</option>-->
           </select>
+           <p id="sub_department"  style="display: none;"><B>SUB DEPARTMENT :</B>
+            <select name="sub_department">
+                <option value="options">Please Select One</option>
+                 <option value="bti">BTI Support</option>
+                <option value="nonbti">Non BTI Support</option>
+<!--                <option value="long">Long Trip Support</option>-->
+<!--                <option value="short">Short Trip Support</option>-->
+<!--                <option value="domestic">Domestic Support</option>-->
+
+          </select>
+        </p>
           <p><B>Active :</B>
             <select name="active" id="editPopupActive" required>
                 <option value="">Please select user state</option>
@@ -140,5 +156,15 @@
   </div>
 </div>
 
+<script>
+    function onIndexUserManageDepartmentChange(){
+         if (document.getElementById("editPopupDepartment").value == "atop" || document.getElementById("editPopupDepartment").value == "cash" ){
+            document.getElementById("sub_department").style.display = 'block'
+        }
+        else{
+            document.getElementById("sub_department").style.display = 'none'
+        }
+    }
+</script>
 
 {% endblock %}

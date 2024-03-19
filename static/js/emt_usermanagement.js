@@ -196,6 +196,7 @@
              $('#editPopupPhone').val(model.phone);
              $('#editPopupGender').val(model.gender);
              $('#editPopupDepartment').val(model.department);
+             $('#sub_department').val(model.sub_department);
              $('#editPopupActive').val(model.active);
              $('#editPopupEmail').prop("readonly", true);
              $('#pPassword').hide();
@@ -217,6 +218,7 @@
                      var phone=$('#editPopupPhone').val();
                      var gender=  $('#editPopupGender').val();
                      var department= $('#editPopupDepartment').val();
+                     var sub_department = $('#sub_department').val();
                      var active=  $('#editPopupActive').val();
                      var password= $('#editPopupPassword').val();
                      $('#btnUpdate').prop('disabled', true);
@@ -226,6 +228,7 @@
                          "phone":phone,
                          "gender":gender,
                          "department":department,
+                         "sub_department":sub_department,
                          "active":active,
                          "password":password,
                          "action_type":action_type
