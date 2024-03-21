@@ -1548,20 +1548,20 @@
                        $("#prev-unassign").attr("disabled", "disabled");
                         $("#next-close").attr("disabled", "disabled");
                break;
-               case "Booking Id/PNR":
-                      clear();
-                     $("#topbtndiv").hide();
-                     $("#txtsearch").text("");
-                     $("#txtsearch").val("");
-                     $('#txtsearch').attr('placeholder', 'Booking Id or PNR');
-                     $('#txtsearch').attr('title', 'Booking Id or PNR');
-                     $("#txtsearch").removeAttr("disabled", "disabled");
-                     $("#searchbtn").removeAttr("disabled", "disabled");
-                     $("#prev-close").attr("disabled", "disabled");
-                      $("#next-unassign").attr("disabled", "disabled");
-                       $("#prev-unassign").attr("disabled", "disabled");
-                        $("#next-close").attr("disabled", "disabled");
-               break;
+//               case "Booking Id/PNR":
+//                      clear();
+//                     $("#topbtndiv").hide();
+//                     $("#txtsearch").text("");
+//                     $("#txtsearch").val("");
+//                     $('#txtsearch').attr('placeholder', 'Booking Id or PNR');
+//                     $('#txtsearch').attr('title', 'Booking Id or PNR');
+//                     $("#txtsearch").removeAttr("disabled", "disabled");
+//                     $("#searchbtn").removeAttr("disabled", "disabled");
+//                     $("#prev-close").attr("disabled", "disabled");
+//                      $("#next-unassign").attr("disabled", "disabled");
+//                       $("#prev-unassign").attr("disabled", "disabled");
+//                        $("#next-close").attr("disabled", "disabled");
+//               break;
                case "Chat Id":
                       clear();
                      $("#topbtndiv").hide();
