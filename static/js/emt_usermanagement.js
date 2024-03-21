@@ -65,7 +65,7 @@
                         return;
                     }
                     var department= $('#editPopupDepartment').val();
-                    var sub_department = $('#sub_department').val();
+                    var sub_department = $('#editPopupSubDepartment').val();
                     if ((department == "atop" || department == "cash" ) && (sub_department == "options"))
                                 alert('Please select sub-department')
                     else
