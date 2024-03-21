@@ -152,6 +152,7 @@
                             {name:"active",label:"Active"},
                             {name:"support_id",label:"Support Id"},
                             {name:"department",hidden:true},
+                            {name:"sub_department",hidden:true},
                             {name:"edt",label:"Edit",search:false,
                             formatter: function (value, grid, row, state)
                             {
@@ -202,11 +203,14 @@
              $('#editPopupPhone').val(model.phone);
              $('#editPopupGender').val(model.gender);
              $('#editPopupDepartment').val(model.department);
-             $('#sub_department').val(model.sub_department);
+              if(model.sub_department != undefined && model.sub_department.length> 0)
+                 $('#sub_department').show();
+             $('#editPopupSubDepartment').val(model.sub_department);
              $('#editPopupActive').val(model.active);
              $('#editPopupEmail').prop("readonly", true);
              $('#pPassword').hide();
              $('#pCnPassword').hide();
+
              $('#editModal').modal('show');
 
         }
@@ -224,11 +228,15 @@
                      var phone=$('#editPopupPhone').val();
                      var gender=  $('#editPopupGender').val();
                      var department= $('#editPopupDepartment').val();
-                     var sub_department = $('#sub_department').val();
+                     var sub_department = $('#editPopupSubDepartment').val();
                      if ((department == "atop" || department == "cash") && sub_department == "options" )
                         alert('Please select Sub Department');
                      else
                      {
+                        if (department != "atop" && department != "cash")
+                        {
+                            sub_department = "";
+                        }
                         var active=  $('#editPopupActive').val();
                         var password= $('#editPopupPassword').val();
                         $('#btnUpdate').prop('disabled', true);

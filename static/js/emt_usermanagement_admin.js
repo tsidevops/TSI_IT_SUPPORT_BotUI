@@ -108,6 +108,7 @@
                             {name:"active",label:"Active"},
                             {name:"support_id",label:"Support Id"},
                             {name:"department",hidden:true},
+                            {name:"subdepartment",hidden:true},
                             {name:"edt",label:"Edit",search:false,
                             formatter: function (value, grid, row, state)
                             {
@@ -158,12 +159,11 @@
              $('#editPopupPhone').val(model.phone);
              $('#editPopupGender').val(model.gender);
              $('#editPopupDepartment').val(model.department);
-            //  $('#editPopupDepartment').val(model.department);
              $('#editPopupActive').val(model.active);
              $('#editPopupEmail').prop("readonly", true);
              $('#pPassword').hide();
              $('#pCnPassword').hide();
-             $('#editModal').modal('show');
+
 
         }
         function BindGridData(){

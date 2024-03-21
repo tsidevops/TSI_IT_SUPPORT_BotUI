@@ -410,7 +410,7 @@ def get_department_users():
     department_id = data.get("departmentid", False)
     musers=mongo_read['userSupportDetails'].find({"department": department_id},
                                                 { "_id": 1,"support_id": 1,"name":1,"phone":1,"gender":1,
-                                                  "department":1,"active":1
+                                                  "department":1,"active":1, "sub_department": 1
                                                 })
     users=[]
     for user in musers:
@@ -737,6 +737,7 @@ def update_user_detail(request,user):
         email = data.get("email"),
         gender = data.get("gender"),
         department = data.get("department"),
+        sub_department = data.get("sub_department"),
         phone = data.get("phone")
         active = parseStringBool(data.get("active"))
 
@@ -755,6 +756,7 @@ def update_user_detail(request,user):
                     "phone": phone,
                     "gender": gender[0],
                     "department": department[0],
+                    "sub_department": sub_department[0],
                     "active": active,
                     "update_time":datetime.utcnow(),
                     "update_by":login_id
