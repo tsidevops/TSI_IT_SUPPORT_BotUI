@@ -12,6 +12,7 @@ import time
 from datetime import datetime, timedelta
 import pytz
 from bson import json_util,ObjectId
+import os
 # from firebase_utils.firebase_connection import add_user_active_status
 from firebase_utils.firebase_connection import add_user_active_status
 
@@ -26,8 +27,12 @@ app = Flask(__name__,
 #     return jsonify({"success": True, "time": datetime.datetime.utcnow(), "version": 1.1})
 
 
+directory = "tmp"
+
 @app.route('/', methods=['GET'])
 def index():
+    if not os.path.exists(directory):
+        os.makedirs(directory)
     return render_template('index.html')
 
 # @app.route('/test')
