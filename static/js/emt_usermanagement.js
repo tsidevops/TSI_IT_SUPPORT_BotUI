@@ -55,7 +55,6 @@
                var vald= $("#usrdetailform").valid();
                if(vald){
                var action_type=$('#actionType').val();
-
               if(action_type=="add"){
                     var pass=  $('#editPopupPassword').val();
                     var cnfPass= $('#editPopupConfirmPassword').val();
@@ -65,10 +64,17 @@
                         $('#editPopupConfirmPassword').val('');
                         return;
                     }
-                    UpdateUserDetail(action_type);
+                    var department= $('#editPopupDepartment').val();
+                    var sub_department = $('#sub_department').val();
+                    if ((department == "atop" || department == "cash" ) && (sub_department == "options"))
+                                alert('Please select sub-department')
+                    else
+                    {
+                        UpdateUserDetail(action_type);
+                    }
                 }
                 else{
-                UpdateUserDetail(action_type);
+                    UpdateUserDetail(action_type);
                 }
 
 
@@ -219,10 +225,14 @@
                      var gender=  $('#editPopupGender').val();
                      var department= $('#editPopupDepartment').val();
                      var sub_department = $('#sub_department').val();
-                     var active=  $('#editPopupActive').val();
-                     var password= $('#editPopupPassword').val();
-                     $('#btnUpdate').prop('disabled', true);
-                     var data={
+                     if ((department == "atop" || department == "cash") && sub_department == "options" )
+                        alert('Please select Sub Department');
+                     else
+                     {
+                        var active=  $('#editPopupActive').val();
+                        var password= $('#editPopupPassword').val();
+                        $('#btnUpdate').prop('disabled', true);
+                        var data={
                          "email":email,
                          "name":name,
                          "phone":phone,
@@ -234,7 +244,7 @@
                          "action_type":action_type
                      }
 
-                    $.ajax({
+                        $.ajax({
                                 type : "POST",
                                 url : "/update_user_detail",
                                 data: data,
@@ -271,6 +281,7 @@
                                     $('#btnUpdate').prop('disabled', false);
                                 }
                                  });
+                   }
 
 
         }
