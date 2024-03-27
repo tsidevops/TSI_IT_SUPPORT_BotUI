@@ -163,7 +163,7 @@ $(document).ready(function() {
                   messagingSenderId: "664292274624",
                   appId: "1:664292274624:web:ef744ec1cfe7f165875825"
                });
-        var supported_file_extension = ["jpg", "jpeg", "png", "pdf"]
+        var supported_file_extension = ["jpg", "jpeg", "png", "pdf", "doc", "docx"]
         var db = firebase.firestore();
         var lastVisibleUnAssigDoc={};
         function convertTimestamptoTime(unixTimestamp) {
@@ -878,7 +878,6 @@ $(document).ready(function() {
 
         function render_msg(msg, attachment_type){
             var src = "";
-            console.log(attachment_type, msg);
             if (attachment_type == 7){
                 if (msg.includes("https://api.infobip.com/")){
                     let url = new URL(msg);
@@ -896,20 +895,19 @@ $(document).ready(function() {
                     })
                     .then(response => response.blob())
                     .then(imgResponse => {
-                        console.log(imgResponse)
 
                         const reader = new FileReader();
                         reader.readAsDataURL(imgResponse);
                         reader.onloadend = function() {
                            src = reader.result;
-                           console.log(src);
+                           //console.log(src);
                            localStorage.setItem("img", src);
                         }
                     })
                     src = localStorage.getItem("img")
-                    console.log(src)
+                   // console.log(src)
                   img = '<a href="#"  onclick="show_image_new_tab();"><img src="'+ src + '" style="width:300px; height:300px"></a>'
-                  console.log(img)
+                  //console.log(img)
                   return img
                 }
 
@@ -919,7 +917,8 @@ $(document).ready(function() {
 
             }
             else if (attachment_type == 10){
-                return '<a href="'+ msg + '" target="_blank"><img src="https://emt-attachments.s3.ap-south-1.amazonaws.com/email-css/File-Header.jpg" width="300px" height="150px"/></a>'
+                   return '<a href="'+ msg + '" target="_blank"><img src="https://emt-attachments.s3.ap-south-1.amazonaws.com/email-css/File-Header.jpg" width="300px" height="150px"/></a>'
+//                return '<a href="'+ msg + '" target="_blank"><img src="https://tsi-attachments.s3.ap-south-1.amazonaws.com/email-css/File-Header.jpg" width="300px" height="150px"/></a>'
             }
 
             else if (attachment_type == 11){
@@ -979,7 +978,8 @@ $(document).ready(function() {
                             var from = change.doc.data()['sender_id'];
                             var msg = change.doc.data()['body'].split('\n').join('<br />');
                             var time = change.doc.data()['create_time'];
-                            var msg_customer_side = change.doc.data()['from_emt']
+//                            var msg_customer_side = change.doc.data()['from_emt']
+                            var msg_customer_side = change.doc.data()['from_tsi']
                             var attachment_type = change.doc.data()['attachment_type']
                             var chat_msg = ''
 //                                 if (document.getElementById("message-warning-"+doc.id) == null){
@@ -1160,7 +1160,8 @@ $(document).ready(function() {
                             var from = change.doc.data()['sender_id'];
                             var msg = change.doc.data()['body'].split('\n').join('<br />');
                             var time = change.doc.data()['create_time'];
-                            var msg_customer_side = change.doc.data()['from_emt']
+//                            var msg_customer_side = change.doc.data()['from_emt']
+                            var msg_customer_side = change.doc.data()['from_tsi']
                             var attachment_type = change.doc.data()['attachment_type']
 
                             var chat_msg = ''

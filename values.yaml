@@ -2,25 +2,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: emt-support
-  namespace: emt-support
+  name: tsi-support
+  namespace: tsi-support
   labels:
-    app: emt-support
-    namespace: emt-support
+    app: tsi-support
+    namespace: tsi-support
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: emt-support
-      namespace: emt-support
+      app: tsi-support
+      namespace: tsi-support
   template:
     metadata:
       labels:
-        app: emt-support
-        namespace: emt-support
+        app: tsi-support
+        namespace: tsi-support
     spec:
       containers: #container is array. - is element of array
-      - name: emt-support
+      - name: tsi-support
 
         image: dsfsf.dkr.ecr.us-west-2.amazonaws.com/sdfdsfs:v11
         ports:
@@ -59,19 +59,19 @@ spec:
                     - key: app
                       operator: In
                       values:
-                        - emt-support
+                        - tsi-support
                 topologyKey: "kubernetes.io/hostname"
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: emt-support
-  namespace: emt-support
+  name: tsi-support
+  namespace: tsi-support
 spec:
   selector:
-    app: emt-support
-    namespace: emt-support
+    app: tsi-support
+    namespace: tsi-support
   ports:
     - protocol: TCP
       port: 80
@@ -80,8 +80,8 @@ spec:
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: emt-support
-  namespace: emt-support
+  name: tsi-support
+  namespace: tsi-support
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/proxy-body-size: "10m"
@@ -91,24 +91,24 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: emt-support.profoundly.me
+  - host: tsi-support.profoundly.me
     http:
       paths:
       - path: /
         backend:
-          serviceName: emt-support
+          serviceName: tsi-support
           servicePort: 80
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: emt-support
-  namespace: emt-support
+  name: tsi-support
+  namespace: tsi-support
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: emt-support
+    name: tsi-support
   minReplicas: 1
   maxReplicas: 5
   targetCPUUtilizationPercentage: 70

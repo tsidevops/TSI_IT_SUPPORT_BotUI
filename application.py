@@ -98,7 +98,7 @@ def dashboard_details(request, user):
         "department": domain,
         'display_department': DISPLAY_DEPARTMENT_NAME[domain],
         "accept_chat_url": {
-            "url": BASE_URL_SERVER + 'emt_assign_chat',
+            "url": BASE_URL_SERVER + 'tsi_assign_chat',
             "method": "POST"
         },
         "send_msg_url": {
@@ -106,7 +106,7 @@ def dashboard_details(request, user):
             "method": "POST"
         },
         'end_chat_url': {
-            "url": BASE_URL_SERVER + "emt_assign_chat_end",
+            "url": BASE_URL_SERVER + "tsi_assign_chat_end",
             "method": "POST"
         },
         'send_file_url': {
@@ -114,7 +114,7 @@ def dashboard_details(request, user):
             "method": "POST"
         },
         "transfer_chat_url": {
-            "url": BASE_URL_SERVER + "emt_transfer_chat",
+            "url": BASE_URL_SERVER + "tsi_transfer_chat",
             "method": "POST"
         },
         'auto_chat_end_url': {
@@ -378,7 +378,7 @@ def dashboard_details_admin(request,user):
         "department": domain,
         'display_department': DISPLAY_DEPARTMENT_NAME[domain],
         "accept_chat_url": {
-            "url": BASE_URL_SERVER + 'emt_assign_chat',
+            "url": BASE_URL_SERVER + 'tsi_assign_chat',
             "method": "POST"
         },
         "send_msg_url": {
@@ -386,7 +386,7 @@ def dashboard_details_admin(request,user):
             "method": "POST"
         },
         'end_chat_url': {
-            "url": BASE_URL_SERVER + "emt_assign_chat_end",
+            "url": BASE_URL_SERVER + "tsi_assign_chat_end",
             "method": "POST"
         },
         'send_file_url': {
@@ -394,7 +394,7 @@ def dashboard_details_admin(request,user):
             "method": "POST"
         },
         "transfer_chat_url": {
-            "url": BASE_URL_SERVER + "emt_transfer_chat",
+            "url": BASE_URL_SERVER + "tsi_transfer_chat",
             "method": "POST"
         },
         'auto_chat_end_url': {
